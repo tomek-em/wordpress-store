@@ -25,10 +25,3 @@
 
 
 <?php get_footer();
-.wrap {
-    position: relative;
-    max-width: 1260px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 1rem;
-}
