@@ -1,0 +1,300 @@
+/*
+Theme Name: Add Store
+Theme URI: 127.0.0.1
+Author: the WordPress team
+Author URI: http://tomaszmejer.com
+Description: Simple Wordpress Theme
+Version: 1.0
+*/
+
+
+
+/* My Store --------
+---- */
+
+html, body {
+    height:100%;
+    font-family: "Roboto Cn", sans-serif;
+    box-sizing: border-box;
+}
+
+
+/* Specified */
+
+.fixed {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    bottom: auto;
+}
+
+.black-bg {
+    background-color: #000;
+}
+
+
+/* Main */
+.wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    
+}
+
+.site-header {
+    width: 100%;
+    min-height: 50%;
+    margin-bottom: 60px;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.4)), url("../res/city_lights.jpg") center no-repeat;
+    background-size: cover;
+    z-index: 1; 
+    /* ISSUE - this needs to have z-inde:1 otherwise when use flexbox, page content goes over navbar */
+}
+
+footer {
+    height: 200px;
+    text-align: center;
+    margin-top: 20px;
+    background-color: #e10000;
+    color: #c0c0c0;
+}
+
+.site-content {
+    flex:1;
+}
+
+
+/* Header */
+
+.my-navbar {
+    width:100%;
+    margin: 0 auto;
+    padding: 1rem 5% 0 5%;
+    display:flex;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: center; 
+    text-transform: uppercase;
+    font-size: 1.1rem;
+}
+
+.menu-toggle {
+	position: fixed;
+	top: 0.6rem;
+	right: 1.6rem;
+	color: #eee;
+	font-size: 2.6rem;
+	cursor: pointer;
+	display: none;
+}
+
+.main-head {
+    position: relative;
+    top: 25%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    color: #eee;
+}
+
+.main-head h1 {
+    font-size: 72px;
+}
+
+.main-head .site-subhead {
+    font-size: 32px;
+}
+
+
+.brand {
+    font-size: 2.4rem;
+    transform: translateX(-100rem);
+    animation: slideIn 0.5s forwards;
+    margin-top: 0;
+}
+
+.my-navbar h2 a {
+    text-decoration: none;
+    color: #eee;
+}
+
+.my-navbar a {
+    text-decoration: none;
+    color: #c0c0c0;
+}
+
+.my-navbar ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-right: 20px;
+    list-style: none;
+    line-height: 3rem;
+}
+
+.manu-item {
+    list-style: none;
+    transform: translateX(100rem);
+    animation: slideIn 0.5s forwards;
+}
+
+.menu-item a {
+    padding: 1rem 0;
+    margin: 0 0 0 2rem;
+    position: relative;
+    letter-spacing: 2px;
+}
+
+.my-navbar ul li a::before,
+.my-navbar ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #ee1111;
+    left: 0;
+    transform: scaleX(0);
+    transition: all 0.4s;
+}
+
+.my-navbar ul li a::before{
+    top: 0;
+    transform-origin: right;
+}
+
+.my-navbar ul li a::after{
+    bottom: 0;
+    transform-origin: left;
+}
+
+.my-navbar ul li a:hover::before,
+.my-navbar ul li a:hover::after{
+    transform: scaleX(1)
+}
+
+@keyframes slideIn{
+    from{}
+    to {
+        transform: translateX(0);
+    }
+}
+
+.my-navbar ul .sub-menu {
+    /* Can try position top -1000 if want to use pure CSS */
+    display: none;
+}
+
+.my-navbar ul .sub-menu a {
+    margin: 0;
+}
+
+.drop-menu {
+    flex-direction: column;
+    position: absolute;
+    z-index: 10;
+}
+
+/* /header */
+
+
+
+/* Page content */
+
+.main-section {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+#contact {
+    padding-top: 3rem;
+}
+
+.boxes {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.box {
+    padding: 4rem;
+    background-color: #c0c0c0;
+}
+
+.page-section {
+    
+}
+
+.wrap {
+    position: relative;
+    max-width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+}
+
+footer p {
+    line-height: 180px;
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    
+    .menu-toggle {
+        display: block;
+        z-index: 11;
+    }
+    
+    .my-navbar {
+        flex-direction: column;
+        margin: 0;
+        width:100%;
+        padding: 1rem 1rem;
+        background-color: #000; 
+        
+    }
+    
+    .my-navbar ul { 
+        padding: 0;
+        margin-right: 0;
+        flex-direction: column;
+        width: 100%;
+		align-items: center;
+		text-align: center;
+        display: none;
+        line-height: 2rem;
+        
+    }
+    
+    .my-navbar ul li{
+        margin: 1rem 0;
+    }
+    
+    .my-navbar ul li a{
+        margin-left: 0;
+    }
+    
+    .main-head {
+        position: absolute;
+        left:50%;
+        width: 100%;
+        text-align: center;
+        z-index: -1;
+    }
+    
+    .main-head h1 {
+        font-size: 36px;
+    }
+
+    .main-head .site-subhead {
+        font-size: 16px;
+    }
+    
+    .drop-menu {
+        position: relative;
+    }    
+
+}
+
+    
