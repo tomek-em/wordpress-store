@@ -15,7 +15,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body> 
+<body <?php if(function_exists("body_class") && !is_404()){body_class();} else echo 'class="default_page"'?>> 
     <div class="wrapper">
     <!-- Header -->
         <header class="site-header" id="main-header">
@@ -34,10 +34,8 @@
             </nav>    
     -->
             <nav class="my-navbar">
-                <h2 class="brand"><a href="index.html">My Store</a></h2>
-
+                <h1 class="brand"><a href="index.html">Ad Store</a></h1>
                 <?php
-
                 wp_nav_menu( array(
                                 'theme_location'  => 'header-menu',
                                 'menu'            => '',
@@ -46,9 +44,13 @@
                 ?>
             </nav>
 
-
-            <div class="main-head">
-                <h1>My Store</h1>
-                <span class="site-subhead">My wordpress store theme.</span>
-            </div>          
+            <div class="head-txt">
+<!--                <h1 class= 'animated zoomIn delay-1s'>My Store |  </h1>-->     <h2 class="head-title animated fadeIn delay-1s">
+                <span class="txt-type" data-wait="3000" data-words='["led signs", "t-shirts", "car decoration"]'></span>
+            </h2>
+                <div class="header-but animated fadeIn delay-1s">
+                    <a class="button1" href="index.php/shop">BUY</a>
+                </div>
+            </div> 
+            
         </header>
