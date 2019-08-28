@@ -72,7 +72,7 @@ html, body {
 
 .site-header {
     width: 100%;
-    min-height: 60%;
+    min-height: 40%;
     margin-bottom: 2rem;
     background: linear-gradient(rgba(0,0,0,0.6), rgba(241,104,82,0.3)), url("res/banner_2.png") center no-repeat;
     background-size: cover;
@@ -85,20 +85,6 @@ html, body {
 body:not(.default_page):not(.home) #main-header {
     min-height: 20%;
     background: rgba(86,86,86,1);
-}
-
-footer {
-    padding: 3rem;
-    text-align: center;
-    margin-top: 20px;
-    background: #f16850;
-    color: #eee;
-    font-size: 1.2rem;
-}
-
-footer > p {
-    margin-top: 2rem;
-    margin-bottom: 0;
 }
 
 .site-content {
@@ -219,20 +205,23 @@ footer > p {
     justify-content: space-between;
     text-align: center;
     min-height: 160px;
+    min-width: 60%;
     position: absolute;
-    bottom: 22%;
+    bottom: 4rem;
     left: 50%;
     transform: translate(-50%, 0);
     color: #eee;
     font-weight: 400;
 }
 
+
+
 body:not(.default_page):not(.home) .head-txt {
     display: none;
 }
 
 .head-title {
-    font-size: 4.2rem;
+    font-size: 3.6rem;
     padding-bottom: 1.6rem;
 }
 
@@ -310,9 +299,42 @@ section {
 }
 
 
+
+
+/*Footer */
+footer {
+    padding: 3rem;
+    margin-top: 20px;
+    background: #f16850;
+    color: #eee;
+    font-size: 1.2rem;
+}
+
+footer a {
+    color: #eee;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: #cdc;
+}
+
+footer p {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    color: #eee;
+}
+
+
+
 /* Responsive */
 
 @media (max-width: 900px) {
+    
+    .site-header {
+        min-height: 50%;
+    }
     
     .menu-toggle {
         display: block;
@@ -358,7 +380,7 @@ section {
     }
     
     .head-title {
-        font-size: 3.4rem;
+        font-size: 2.8rem;
         padding-bottom: 1rem;
     }
     

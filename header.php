@@ -43,14 +43,13 @@
                             ) );
                 ?>
             </nav>
-
             <div class="head-txt">
-<!--                <h1 class= 'animated zoomIn delay-1s'>My Store |  </h1>-->     <h2 class="head-title animated fadeIn delay-1s">
-                <span class="txt-type" data-wait="3000" data-words='["led signs", "t-shirts", "car decoration"]'></span>
-            </h2>
-                <div class="header-but animated fadeIn delay-1s">
-                    <a class="button1" href="index.php/shop">BUY</a>
+<!--                <h1 class= 'animated zoomIn delay-1s'>My Store |  </h1>-->              <h2 class="head-title animated fadeIn delay-1s">Design your 
+                    <span class="txt-type" data-wait="3000" data-words='["led sign", "t-shirt", "car decoration"]'></span>
+                </h2>
+                    <div class="header-but animated fadeIn delay-1s">
+                        <a class="button1" href="index.php/shop">BUY</a>
+                    </div>
                 </div>
-            </div> 
-            
+    
         </header>
