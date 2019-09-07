@@ -80,5 +80,20 @@ function add_login_logout_link($items, $args) {
     $items .= '<li class="menu-item">'. $item .'</li>';
     return $items;
 } 
+
+//add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+
+//Reload woocommerce styles
+    function add_customwc_css() {
+        wp_enqueue_style( ' add_woocommerce_css ', get_template_directory_uri() . '/css/custom_wc.css');
+    }
+
+// Main CSS Stylesheet
+    function add_main_css() {
+        wp_enqueue_style( ' add_main_css ', get_template_directory_uri() . '/style.css', array(), '2.0' );
+    }
+    add_action( 'wp_enqueue_scripts', 'add_customwc_css');
+    add_action( 'wp_enqueue_scripts', 'add_main_css');
+
 ?>
 

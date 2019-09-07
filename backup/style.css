@@ -1,0 +1,406 @@
+/*
+Theme Name: AdStore
+Theme URI: 127.0.0.1
+Author: the WordPress team
+Author URI: http://tomaszmejer.com
+Description: Simple Wordpress Theme
+Version: 1.0
+*/
+
+
+
+/* My Store --------
+---- */
+/* ISSUES:
+need to setup box-sixing and padding, margin for all *{};
+
+- flexbox and fixed position
+*/
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height:100%;
+    font-family: 'Play', sans-serif;
+}
+
+
+/* Specified */
+
+.fixed {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    bottom: auto;
+}
+
+.black-bg {
+    background-color: #000;
+}
+
+.button1 {
+    padding: 15px 50px 15px 50px;
+    border-radius: 25px;
+    border: 2px solid #eee;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: rgba(200,200,200,0.1);
+    color: #eee;
+    text-decoration: none;
+}
+
+.button1:hover {
+    text-decoration: none;
+    color: #edd;
+    background: rgba(200,200,200,0.3);
+}
+
+
+/* Main */
+
+.wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.site-header {
+    width: 100%;
+    min-height: 40%;
+    margin-bottom: 2rem;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(241,104,82,0.3)), url("res/banner_2.png") center no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 1; 
+    /* ISSUE - this needs to have z-inde:1 otherwise when use flexbox, page content goes over navbar */
+}
+
+/* checking if is not "home". Default_page class added if is home. See <body php ...> Using NOT pseudoclass */
+body:not(.default_page):not(.home) #main-header {
+    min-height: 20%;
+    background: rgba(86,86,86,1);
+}
+
+.site-content {
+    flex:1;
+}
+
+
+/* Header */
+
+.my-navbar {
+    width:100%;
+    margin: 0 auto;
+    padding: 0rem 5% 0 5%;
+    display:flex;
+    justify-content: space-between;
+    align-content: flex-start;
+    align-items: center; 
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.menu-toggle {
+	position: fixed;
+	top: 0.6rem;
+	right: 1.6rem;
+	color: #eee;
+	font-size: 2.6rem;
+	cursor: pointer;
+	display: none;
+}
+
+.brand {
+    font-size: 2.8rem;
+    transform: translateX(-100rem);
+    animation: slideIn 0.5s forwards;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.my-navbar h1 a {
+    text-decoration: none;
+    color: #eee;
+}
+
+.my-navbar ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin-right: 20px;
+    margin-bottom: 0;
+    list-style: none;
+    line-height: 3rem;
+}
+
+.manu-item {
+    list-style: none;
+    transform: translateX(100rem);
+    animation: slideIn 0.5s forwards;
+}
+
+.menu-item a {
+    padding: 1rem 0;
+    margin: 0 0 0 2rem;
+    position: relative;
+    text-decoration: none;
+    color: #c0c0c0;
+    letter-spacing: 2px;
+}
+
+.my-navbar ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ee1111;
+    left: 0;
+    transform: scaleX(0);
+    transition: all 0.2s;
+}
+
+.my-navbar ul li a::after{
+    bottom: 0;
+    transform-origin: left;
+}
+
+.my-navbar ul li a:hover::before,
+.my-navbar ul li a:hover::after{
+    transform: scaleX(1)
+}
+
+@keyframes slideIn{
+    from{}
+    to {
+        transform: translateX(0);
+    }
+}
+
+.my-navbar ul .sub-menu {
+    /* Can try position top -1000 if want to use pure CSS */
+    display: none;
+}
+
+.my-navbar ul .sub-menu a {
+    margin: 0;
+    margin-left: 2rem;
+}
+
+.drop-menu {
+    flex-direction: column;
+    position: absolute;
+    z-index: 10;
+}
+
+.head-txt {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    justify-content: space-between;
+    text-align: center;
+    min-height: 160px;
+    min-width: 60%;
+    position: absolute;
+    bottom: 4rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    color: #eee;
+    font-weight: 400;
+}
+
+
+
+body:not(.default_page):not(.home) .head-txt {
+    display: none;
+}
+
+.head-title {
+    font-size: 3.6rem;
+    padding-bottom: 1.6rem;
+}
+
+.head-title > .txt-type{
+    padding-right:0.2rem;
+    border-right: 0.2rem solid #eee;
+}
+/* /header */
+
+
+
+/* Page content */
+
+section {
+    max-width:1280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-section {
+    padding: 2rem 1em;
+}
+
+.main-section p {
+    font-size: 1.8rem;
+}
+
+#contact {
+    padding-top: 3rem;
+}
+
+.boxes {
+    margin-top:2rem;
+    padding: 2rem 6rem;
+    min-width: 100%;
+    background: linear-gradient(rgba(86, 86, 86, 0.4), rgba(86,86,86,0.02));
+    background-size: cover;
+}
+
+.box {
+    padding: 4rem;
+    background-color: #c0c0c0;
+}
+
+.wrap {
+    flex: 1;
+    position: relative;
+    max-width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1rem;
+}
+
+/* WooCommerce */
+
+.woocommerce-billing-fields {
+    min-width: 90%;
+}
+
+.woocommerce-input-wrapper {
+    min-width: 200px;
+}
+
+.woocommerce-MyAccount-navigation {
+    display: none;
+}
+ 
+/* Fixing woocommerce - bootstrap conflict */
+.woocommerce-billing-fields .form-row, .woocommerce-shipping-fields .form-row,.woocommerce form .form-row {
+    display: block;
+}
+
+.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1,.woocommerce .col2-set .col-2, .woocommerce-page .col2-set .col-2 {
+    max-width: unset;
+}
+
+
+
+
+/*Footer */
+footer {
+    padding: 3rem;
+    margin-top: 20px;
+    background: #f16850;
+    color: #eee;
+    font-size: 1.2rem;
+}
+
+footer a {
+    color: #eee;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: #cdc;
+}
+
+footer p {
+    margin-top: 2rem;
+    margin-bottom: 0;
+    color: #eee;
+}
+
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    
+    .site-header {
+        min-height: 50%;
+    }
+    
+    .menu-toggle {
+        display: block;
+        z-index: 11;
+    }
+    
+    .my-navbar {
+        flex-direction: column;
+        margin: 0;
+        width:100%;
+        padding: 1rem 1rem;
+        background-color: #000; 
+    }
+    
+    .my-navbar ul { 
+        padding: 0;
+        margin-right: 0;
+        flex-direction: column;
+        width: 100%;
+		align-items: center;
+		text-align: center;
+        display: none;
+        line-height: 3rem;
+        
+    }
+    
+    .my-navbar ul li{
+        margin: 0;
+    }
+    
+    .my-navbar ul li a{
+        margin-left: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .head-txt {
+        min-height: 140px;
+        position: absolute;
+        left:50%;
+        width: 100%;
+        text-align: center;
+        z-index: -1;
+    }
+    
+    .head-title {
+        font-size: 2.8rem;
+        padding-bottom: 1rem;
+    }
+    
+    .sub-menu {
+        align-items: flex-start;
+        line-height: 3rem;
+    }
+    
+    .sub-menu li {
+        margin: 0;
+    }
+    
+    .my-navbar ul .sub-menu a {
+        margin: 0;
+    }
+    
+    .drop-menu {
+        position: relative;
+    }    
+
+}
+
+    

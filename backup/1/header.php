@@ -10,6 +10,7 @@
     </title>
     
     <link rel="stylesheet" href="<?php bloginfo('template_url')?>/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url') ?>">
     
     <?php wp_head(); ?>
 </head>
@@ -55,6 +56,6 @@
                     </div>
             
                 </div>
-            </div> 
-<!--            <div class="head-img"></div>-->
+            </div>    
+    
         </header>

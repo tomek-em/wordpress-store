@@ -27,11 +27,9 @@ need to setup box-sixing and padding, margin for all *{};
     padding: 0;
 }
 
-
 html, body {
-    min-height:100%;
+    height:100%;
     font-family: 'Play', sans-serif;
-    background: rgba(80,80,80,0.2);
 }
 
 
@@ -54,7 +52,7 @@ html, body {
     max-width: 1260px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
 }
 
 .cont-flex{
@@ -75,9 +73,6 @@ html, body {
     background: rgba(33,37,41,1);
     color: #eee;
     text-decoration: none;
-    border-radius: 5px;
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
-    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 }
 
 .button1:hover {
@@ -90,7 +85,7 @@ html, body {
 /* Main */
 
 .wrapper {
-    min-height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-content: space-between;
@@ -98,10 +93,10 @@ html, body {
 
 .site-header {
     width: 100%;
-    height: 36vh;
-    min-height: 300px;
-    margin-bottom: 0;
-    background: linear-gradient(rgba(38,138,255,1.0), rgba(38,138,255,0.7)), url("res/banner_1.png") center no-repeat;
+    min-height: 50%;
+    margin-bottom: 2rem;
+    margin-bottom: 100px;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(241,104,82,0.3)), url("res/banner_2.png") center no-repeat;
     background-size: cover;
     position: relative;
     z-index: 1; 
@@ -110,8 +105,7 @@ html, body {
 
 /* checking if is not "home". Default_page class added if is home. See <body php ...> Using NOT pseudoclass */
 body:not(.default_page):not(.home) #main-header {
-    min-height: 0;
-    max-height: 200px;
+    min-height: 20%;
     background: rgba(86,86,86,1);
 }
 
@@ -125,14 +119,14 @@ body:not(.default_page):not(.home) #main-header {
 .my-navbar {
     width:100%;
     margin: 0 auto;
-    padding: 0;
+    padding: 0rem 5% 0 5%;
     display:flex;
     justify-content: space-between;
     align-content: flex-start;
     align-items: center; 
     text-transform: uppercase;
     font-size: 1rem;
-   
+    background: #212529;
 }
 
 .menu-toggle {
@@ -161,26 +155,25 @@ body:not(.default_page):not(.home) #main-header {
 .my-navbar ul {
     display: flex;
     flex-wrap: wrap;
-/*    align-items: flex-start;*/
+    align-items: flex-start;
     margin-right: 20px;
-    margin-top: 3rem;
     margin-bottom: 0;
     list-style: none;
-    line-height: 2.6rem;
+    line-height: 3rem;
 }
 
-.menu-item {
+.manu-item {
     list-style: none;
     transform: translateX(100rem);
     animation: slideIn 0.5s forwards;
 }
 
 .menu-item a {
-    padding: 0.68rem 0;
+    padding: 1rem 0;
     margin: 0 0 0 2rem;
     position: relative;
     text-decoration: none;
-    color: #eee;
+    color: #c0c0c0;
     letter-spacing: 2px;
 }
 
@@ -215,61 +208,35 @@ body:not(.default_page):not(.home) #main-header {
 .my-navbar ul .sub-menu {
     /* Can try position top -1000 if want to use pure CSS */
     display: none;
-    margin-top: 0;
+}
+
+.my-navbar ul .sub-menu a {
+    margin: 0;
+    margin-left: 2rem;
 }
 
 .drop-menu {
     flex-direction: column;
-    align-items: stretch;
     position: absolute;
     z-index: 10;
 }
 
-.drop-menu .menu-item {
-    line-height: 1.2rem;
-    background: #212529;
-    animation: slideIn 0.1s forwards;
-}
-
-.drop-menu .menu-item a {
-    margin: 0 1rem;
-    padding: 0.68rem 1rem;
-    display: inline-block
-    /* needed in chrome - if use need to adjust linehight - .dropdown .menu-it */        
-}
-
-
-
-
-
-.default_page .head-img, .home .head-img {
-    position: absolute;
-    right: 8rem;
-    bottom: -3rem;
-    height: 300px;
-    width: 500px;
-    background: linear-gradient(rgba(100,100,100,0), rgba(100,100,100,0)), url("res/car_1.png") center no-repeat;
-    background-size: cover;
-    
-}
-
 .head-txt {
-    z-index: -1;
     display: flex;
     flex-direction: column;
     align-content: flex-end;
     justify-content: space-between;
     text-align: left;
-    min-height: 140px;
+    min-height: 160px;
     width: 1260px;
-    position: relative;
-    top: 3rem;
+    position: absolute;
+    bottom: 6rem;
 /*
     left: 50%;
     transform: translate(-50%, 0);
 */
     color: #eee;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 body:not(.default_page):not(.home) .head-txt {
@@ -277,18 +244,15 @@ body:not(.default_page):not(.home) .head-txt {
 }
 
 .head-title {
-    font-size: 3.2rem;
+    font-size: 3.6rem;
     padding-bottom: 1.6rem;
 }
 
 .head-title > .txt-type{
     padding-right:0.2rem;
-    border-right: 0.2rem solid #eee;;
+    border-right: 0.2rem solid #eee;
 }
 /* /header */
-/* ----------------------------------------- */
-
-
 
 
 
@@ -327,148 +291,84 @@ section {
     background-color: #c0c0c0;
 }
 
+/*
 .wrap {
     flex: 1;
     position: relative;
-    width:100%;
     max-width: 1260px;
     margin-left: auto;
     margin-right: auto;
-    padding: 2rem 1rem;
+    padding: 0 1rem;
 }
-
-.main-banner {
-    min-width: 100%;
-    padding: 4rem 0;
-}
+*/
 
 .shop-banner {
-    width: 100%;
+    min-width: 100%;
+    min-height: 400px;
+    overflow: hidden;
+}
+
+.banner-cont {
+    max-width: 1260px;
+    height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: stretch;
+    
 }
 
 .banner-item {
-    position: relative;
-    height: 320px;
-    min-width: 30%;
-    margin: 0 0.9%;
-    border-radius: 5px;
+    margin: 0 0.4rem;
+    min-width: 32%;
     background-color: #ccc;
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
-    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+    
 }
 
-.banner-item .top {
-    position: absolute;
-    left: 50%;
-    top: 50px;
-    min-height: 80px;
-    min-width: 80px;
-    padding: 1rem 0.5rem 0.5rem 0.5rem;
-    transform: translate(-50%, 0);
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-size: contain;
+.banner-item > .top {
+    height: 20%;
 }
 
-#led .top {
-    background-image: url(res/sign.png);
+.banner-item > .cont {
+    height: 80%;
+    background-color: #888;
 }
 
-#t-shirt .top {
-    background-image: url(res/tshirt.png);
+#led .cont{
+    clip-path: polygon(0 35%, 100% 45%, 100% 100%, 0 100%);
 }
 
-#car-decor .top {
-    background-image: url(res/car.png);
+#t-shirt .cont{
+    clip-path: polygon(0 45%, 100% 55%, 100% 100%, 0 100%);
 }
 
-.cover {
-    border-radius: 8px;
-    position: relative;
-    min-height: 100%;
-    min-width: 98%;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: 600;
-    background: rgba(33,37,41,1);
-    color: #eee;
-}
-
-.cover p{
-    position: absolute;
-    bottom: 40px;
-    left: 50%;
-    padding: 1rem 0.5rem 0.5rem 0.5rem;
-    transform: translate(-50%, 0);
-}
-
-.cover p:after {
-    content: "";
-    position: absolute;
-    width: 70px;
-    height: 1px;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-}
-
-.banner-item .top p {
-    margin-bottom: 0;
-}
-
-.banner-item .top p:after {
-    content: "";
-    position: absolute;
-    width: 80px;
-    height: 1px;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-    border-bottom: 2px solid #eee;
-}
-
-#led {
-    background: linear-gradient(rgba(253,154,40,0), rgba(253,154,40,0)), url("res/city_lights.jpg") center no-repeat;
-    background-size: cover;
-}
-
-#led .cover{
-    clip-path: polygon(0 45%, 100% 50%, 100% 100%, 0 100%);
-}
-
-#led .cover p:after {
-    border-bottom: 2px solid #FD9A28;
-}
-
-#t-shirt {
-    background: rgba(38,138,255,1);
-}
-
-#t-shirt .cover{
-    clip-path: polygon(0 50%, 100% 55%, 100% 100%, 0 100%);
-}
-
-#t-shirt .cover p:after {
-    border-bottom: 2px solid #268AFF;
-}
-
-#car-decor {
-    background: rgba(238,17,17,0.9); 
-}
-
-#car-decor .cover{
-    clip-path: polygon(0 55%, 100% 60%, 100% 100%, 0 100%);
-}
-
-#car-decor .cover p:after {
-    border-bottom: 2px solid #ee1111;
+#car-decor .cont{
+    clip-path: polygon(0 55%, 100% 65%, 100% 100%, 0 100%);
 }
 
 
+/* WooCommerce */
 
+.woocommerce-billing-fields {
+    min-width: 90%;
+}
+
+.woocommerce-input-wrapper {
+    min-width: 200px;
+}
+
+.woocommerce-MyAccount-navigation {
+    display: none;
+}
+ 
+/* Fixing woocommerce - bootstrap conflict */
+.woocommerce-billing-fields .form-row, .woocommerce-shipping-fields .form-row,.woocommerce form .form-row {
+    display: block;
+}
+
+.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1,.woocommerce .col2-set .col-2, .woocommerce-page .col2-set .col-2 {
+    max-width: unset;
+}
 
 
 
@@ -477,8 +377,7 @@ section {
 footer {
     padding: 3rem;
     margin-top: 20px;
-/*    background: #f16850;*/
-    background: #268AFF;
+    background: #f16850;
     color: #eee;
     font-size: 1.2rem;
 }
@@ -502,43 +401,11 @@ footer p {
 
 
 /* Responsive */
-@media (max-width: 1300px) {
-    .site-header {
-        height: 40vh;
-        min-height: 300px;
-    }
-    
-    .brand {
-        font-size: 2rem;
-    }
-    
-    .head-img {
-        display: none;
-    }
-    
-    .head-txt {
-        min-height: 90px;
-        width:900px;
-    }
-    
-    .head-title {
-        font-size: 2.6rem;
-    }
-    
-    .banner-item > .top {
-        font-size: 2rem;
-    }
-    
-    .cover p {
-        bottom: 40px;
-    }
-}
-
 
 @media (max-width: 900px) {
     
     .site-header {
-        height: 400px;
+        min-height: 80%;
     }
     
     .menu-toggle {
@@ -559,7 +426,7 @@ footer p {
     }
     
     .brand {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     
     .my-navbar ul { 
@@ -570,6 +437,7 @@ footer p {
 		align-items: center;
 		text-align: center;
         display: none;
+        line-height: 3rem;
         
     }
     
@@ -582,12 +450,8 @@ footer p {
         margin-bottom: 1rem;
     }
     
-    .head-img {
-        display: none;
-    }
-    
     .head-txt {
-        min-height: 120px;
+        min-height: 140px;
         min-width: 90%;
         position: absolute;
         left: 50%;
@@ -598,7 +462,7 @@ footer p {
     }
     
     .head-title {
-        font-size: 2.4rem;
+        font-size: 2rem;
         padding-bottom: 1rem;
     }
     
@@ -618,26 +482,9 @@ footer p {
     .drop-menu {
         position: relative;
     }  
-
     
     .head-pic {
         display: none;
-    }
-    
-    .shop-banner {
-        flex-direction: column;
-    }
-    
-    .banner-item {
-        min-height: 350px;
-        min-width: 90%;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 1.5rem;
-    }
-    
-    .cover p {
-        bottom:20px;
     }
 
 }

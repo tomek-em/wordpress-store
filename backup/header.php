@@ -10,6 +10,7 @@
     </title>
     
     <link rel="stylesheet" href="<?php bloginfo('template_url')?>/css/bootstrap.css">
+    <link rel="stylesheet" href="<?php bloginfo('stylesheet_url') ?>">
     
     <?php wp_head(); ?>
 </head>
@@ -33,28 +34,22 @@
             </nav>    
     -->
             <nav class="my-navbar">
-                <div class="cont cont-flex">
-                    <h1 class="brand"><a href="<?php echo home_url(); ?>/index.php">Ad Store</a></h1>
-                    <?php
-                    wp_nav_menu( array(
-                                    'theme_location'  => 'header-menu',
-                                    'menu'            => '',
-                                    'container'       => false
-                                ) );
-                    ?>
-                </div>
+                <h1 class="brand"><a href="index.html">Ad Store</a></h1>
+                <?php
+                wp_nav_menu( array(
+                                'theme_location'  => 'header-menu',
+                                'menu'            => '',
+                                'container'       => false
+                            ) );
+                ?>
             </nav>
-            <div class="cont">
-                <div class="head-txt">
-                
-<!--                <h1 class= 'animated zoomIn delay-1s'>My Store |  </h1>-->                  <h2 class="head-title animated fadeIn delay-1s">Custom
-                        <span class="txt-type" data-wait="3000" data-words='["led sign", "t-shirt", "car decoration"]'></span>
-                    </h2>
+            <div class="head-txt">
+<!--                <h1 class= 'animated zoomIn delay-1s'>My Store |  </h1>-->              <h2 class="head-title animated fadeIn delay-1s">Design your 
+                    <span class="txt-type" data-wait="3000" data-words='["led sign", "t-shirt", "car decoration"]'></span>
+                </h2>
                     <div class="header-but animated fadeIn delay-1s">
-                        <a class="button1" href="index.php/shop">Shop Now</a>
+                        <a class="button1" href="index.php/shop">BUY</a>
                     </div>
-            
                 </div>
-            </div> 
-<!--            <div class="head-img"></div>-->
+    
         </header>
