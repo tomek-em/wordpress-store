@@ -101,7 +101,7 @@ html, body {
     height: 36vh;
     min-height: 300px;
     margin-bottom: 0;
-    background: linear-gradient(rgba(38,138,255,1.0), rgba(38,138,255,0.7)), url("res/banner_1.png") center no-repeat;
+    background: linear-gradient(rgba(255,138,36,1.0), rgba(255,138,38,0.7)), url("res/banner_1.png") center no-repeat;
     background-size: cover;
     position: relative;
     z-index: 1; 
