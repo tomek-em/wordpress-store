@@ -37,11 +37,17 @@ jQuery(function($){
         if ($(window).scrollTop() > 50) {
             $('.my-navbar').addClass('fixed');
             $('.my-navbar').addClass('black-bg');
+            $('.site-navbar-top').addClass('fixed');
+            $('.site-navbar-top').addClass('black-bg');
+            $('.site-navbar-top').addClass('cont');
             $('.sub-menu').css('display','none');
             i = 0;
         } else {
             $('.my-navbar').removeClass('fixed');
             $('.my-navbar').removeClass('black-bg');
+            $('.site-navbar-top').removeClass('fixed');
+            $('.site-navbar-top').removeClass('black-bg');
+            $('.site-navbar-top').removeClass('cont');
         }
     });
 });

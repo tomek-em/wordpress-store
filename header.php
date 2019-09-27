@@ -18,10 +18,6 @@
     <div class="wrapper">
     <!-- Header -->
         <header class="site-header" id="main-header">
-        <!-- Nav-bar -->
-            <div class="menu-toggle" id="toggle">
-                <i class="fas fa-bars"></i>
-            </div>
     <!--
             <nav class="my-navbar">
                 <h2 class="brand"><a href="index.html">My Store</a></h2>
@@ -32,9 +28,37 @@
                 </ul>
             </nav>    
     -->
+            <div class="site-navbar-top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 mb-3 col-md-6">
+                            <div class="site-logo">
+                                <a href="index.html" class="site-logo">AdStore</a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="site-top-icons" id='top-nav'>
+                                <ul class='cont-flex top-nav-ul'>
+                                    <li><a href="#"><span class="icon icon-person"></span>Account</a></li>
+                                    <li>
+                                        <a href="cart.html" class="site-cart">
+                                        <span class="icon icon-shopping_cart"></span>
+                                        <span class="count">2</span>
+                                        Cart</a>
+                                    </li>
+                                    <!-- Dropdownr -->
+                                    <div class="menu-toggle" id="toggle">
+                                        <i class="fas fa-bars"></i>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <nav class="my-navbar">
-                <div class="cont cont-flex">
-                    <h1 class="brand"><a href="<?php echo home_url(); ?>/index.php">Ad Store</a></h1>
+                <div class="cont">
                     <?php
                     wp_nav_menu( array(
                                     'theme_location'  => 'header-menu',
@@ -44,10 +68,11 @@
                     ?>
                 </div>
             </nav>
+            
             <div class="cont">
+<!--
                 <div class="head-txt">
-                
-<!--                <h1 class= 'animated zoomIn delay-1s'>My Store |  </h1>-->                  <h2 class="head-title animated fadeIn delay-1s">Custom
+                <h2 class="head-title animated fadeIn delay-1s">Custom
                         <span class="txt-type" data-wait="3000" data-words='["led sign", "t-shirt", "car decoration"]'></span>
                     </h2>
                     <div class="header-but animated fadeIn delay-1s">
@@ -55,6 +80,6 @@
                     </div>
             
                 </div>
+-->
             </div> 
-<!--            <div class="head-img"></div>-->
         </header>

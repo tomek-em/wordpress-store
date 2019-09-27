@@ -44,6 +44,11 @@ html, body {
     bottom: auto;
 }
 
+.w-100 {
+    width: 100%;
+    margin:0;
+}
+
 .m-auto {
     margin-left: auto;
     margin-right: auto;
@@ -51,17 +56,15 @@ html, body {
 
 .cont {
     width: 100%;
-    max-width: 1260px;
+    max-width: 1140px;
     margin-left: auto;
     margin-right: auto;
-    padding: 0 2rem;
+    padding: 0 15px;
 }
 
 .cont-flex{
     display:flex;
-    justify-content: space-between;
-    align-content: flex-start;
-    align-items: center; 
+    flex-direction: row;
 }
 
 .black-bg {
@@ -98,8 +101,6 @@ html, body {
 
 .site-header {
     width: 100%;
-    height: 36vh;
-    min-height: 300px;
     margin-bottom: 0;
     background: linear-gradient(rgba(255,138,36,1.0), rgba(255,138,38,0.7)), url("res/banner_1.png") center no-repeat;
     background-size: cover;
@@ -122,46 +123,47 @@ body:not(.default_page):not(.home) #main-header {
 
 /* Header */
 
+/* Top-navbar */
+.site-logo a {
+    text-decoration: none;
+    color: #eee;
+    font-size: 3rem;
+}
+
+.top-nav-ul {
+    justify-content: flex-end;
+    list-style: none;
+}
+
+.top-nav-ul li a {
+    padding: 0 10px;
+    text-decoration: none;
+    color: #eee;
+}
+
+
+/* Main navbar */
+
 .my-navbar {
     width:100%;
     margin: 0 auto;
     padding: 0;
-    display:flex;
-    justify-content: space-between;
-    align-content: flex-start;
-    align-items: center; 
     text-transform: uppercase;
     font-size: 1rem;
-   
 }
 
 .menu-toggle {
-	position: fixed;
-	top: 0.6rem;
-	right: 1.6rem;
+	padding: 10px;
 	color: #eee;
 	font-size: 2.6rem;
 	cursor: pointer;
 	display: none;
 }
 
-.brand {
-    font-size: 2.8rem;
-    transform: translateX(-100rem);
-    animation: slideIn 0.5s forwards;
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.my-navbar h1 a {
-    text-decoration: none;
-    color: #eee;
-}
-
 .my-navbar ul {
     display: flex;
     flex-wrap: wrap;
-/*    align-items: flex-start;*/
+    justify-content: center;
     margin-right: 20px;
     margin-top: 3rem;
     margin-bottom: 0;
@@ -237,6 +239,17 @@ body:not(.default_page):not(.home) #main-header {
     display: inline-block
     /* needed in chrome - if use need to adjust linehight - .dropdown .menu-it */        
 }
+
+
+.brand {
+    font-size: 2.8rem;
+    transform: translateX(-100rem);
+    animation: slideIn 0.5s forwards;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
 
 
 
@@ -547,25 +560,29 @@ footer p {
 
 @media (max-width: 900px) {
     
-    .site-header {
-        height: 400px;
-    }
-    
     .menu-toggle {
         display: block;
         z-index: 11;
     }
     
+    .site-logo {
+        text-align: center;
+    }
+    
+    .site-top-icons {
+        text-align: center;
+    }
+    
     .my-navbar {
         flex-direction: column;
+        padding: 0 1rem;
         margin: 0;
         width:100%;
-        padding: 1rem 1rem;
         background: #212529; 
     }
     
-    .cont-flex {
-        display: block;
+    .top-nav-ul {
+       margin: 0;
     }
     
     .brand {
@@ -575,12 +592,12 @@ footer p {
     .my-navbar ul { 
         padding: 0;
         margin-right: 0;
+        margin-top: 0;
         flex-direction: column;
         width: 100%;
 		align-items: center;
 		text-align: center;
         display: none;
-        
     }
     
     .my-navbar ul li{
