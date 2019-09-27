@@ -1,4 +1,8 @@
 <?php
+    //Know-How:
+    //The autoloading of functions.php means that its functions are available to you in any of your theme’s PHP files. 
+
+
     // The proper way to add styles & scripts is to enqueue them in this file
     // ------
     //jQuery
@@ -94,6 +98,18 @@ function add_login_logout_link($items, $args) {
     }
     add_action( 'wp_enqueue_scripts', 'add_customwc_css');
     add_action( 'wp_enqueue_scripts', 'add_main_css');
+
+// Three JS
+    function three_enq() {
+        
+        wp_enqueue_script( 'three_js', get_theme_file_uri( '/js/three.min.js' ), array('jquery'), null, true );
+        wp_enqueue_script( 'obj_loader', get_theme_file_uri( '/js/OBJLoader.js' ), array('jquery'), null, true );
+        wp_enqueue_script( 'mtl_loader', get_theme_file_uri( '/js/MTLLoader.js' ), array('jquery'), null, true );
+        wp_enqueue_script( '_obj', get_theme_file_uri( '/js/obj.js' ), array('jquery'), null, true );
+    }
+
+        //add_action( 'wp_enqueue_scripts', 'three_enq' ); 
+
 
 ?>
 

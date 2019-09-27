@@ -1,6 +1,8 @@
 jQuery(function($){
     var i = 0;
     
+    // Toggle menu ------------
+    
     function showMenu() {
         $('.menu').slideToggle(300);
     }
@@ -67,7 +69,7 @@ TypeWriter.prototype.type = function() {
     } else {
         this.txt = fullTxt.substring(0, this.txt.length + 1);
     }
-    console.log(this.txt);
+    //console.log(this.txt);
     this.txtELement.innerHTML = '<span class="txt">'+ this.txt + '</span>';
     
     let typeSpeed = 200;

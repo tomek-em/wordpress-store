@@ -1,9 +1,11 @@
 <?php 
  
 
-get_header(); ?>
+get_header(); 
+
+if( get_option( 'show_on_front' ) != 'posts' ):
+?>
     <div id="primary" >
- 
     <div class="custom-homepage-container"> 
  
               <!--banner section start -->
@@ -36,15 +38,38 @@ get_header(); ?>
             </div>
         </section>
     <!-- banner section end -->
-
-
+        
     <!-- Main container -->
     <section class="main-section">
         <div class="cont">
             <p>Ad Store it's a online store which sells printed products, led signs and t-shirts (message tees). Just choose your product, design it and order. It is so easy! </p>
         </div>
     </section>
+</div> 
+</div><!-- #primary -->        
+        
+        
+<?php
+else :
+    ?>
+    <div class="wrap">
+    <?php    
+    if ( have_posts() ) :
+        while ( have_posts() ) : the_post(); ?>
+            <h2><?php the_title() ?></h2>
+            <?php the_content() ?>
 
+        <?php endwhile;
+
+    else :
+        echo '<p>There are no posts!</p>';
+    endif;
+    ?>
+    </div> <!-- wrap -->
+
+<?php
+    endif;
+?>
 <!--
         <section class="boxes">
             <div class="container">
@@ -88,7 +113,4 @@ get_header(); ?>
         </section>
 -->
  
-    </div> 
- 
-    </div><!-- #primary -->
 <?php get_footer(); ?>

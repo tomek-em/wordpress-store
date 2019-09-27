@@ -41,14 +41,15 @@
     margin-right: 2rem;
     padding: 1rem 2rem;
     background: #ccc;
-    
 }
 
 .woocommerce ul.products[class*="columns-"] li.product, .woocommerce-page ul.products[class*="columns-"] li.product {
     max-width: 240px;
 }
 
-
+.wc-tabs {
+    display: none;
+}
 
 
 @media (max-width: 1300px) {

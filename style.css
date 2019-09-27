@@ -470,6 +470,13 @@ section {
 
 
 
+/* Three JS */
+
+#prod-canvas {
+    width: 600px;
+    height: 400px;
+}
+
 
 
 
@@ -498,6 +505,9 @@ footer p {
     margin-bottom: 0;
     color: #eee;
 }
+
+
+
 
 
 
@@ -589,7 +599,7 @@ footer p {
     .head-txt {
         min-height: 120px;
         min-width: 90%;
-        position: absolute;
+        top: 4rem;
         left: 50%;
         transform: translate(-50%, 0);
         width: 100%;
