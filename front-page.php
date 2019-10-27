@@ -6,45 +6,73 @@ get_header();
 if( get_option( 'show_on_front' ) != 'posts' ):
 ?>
     <div id="primary" >
-    <div class="custom-homepage-container"> 
- 
-              <!--banner section start -->
-        <section class="main-banner">
-            <div class="cont shop-banner">
-                <div class="banner-item" id="led">
-                    <div class="top">
+        
+        <!-- Hero
+    ============================================ -->
+    <div class="hero-wrapper text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="hero-content">
+                        <h3>AdStore: LEDsign, t-shirt, car decoration.</h3>
+                        <p><span></span></p>
+                        <a href="<?php echo home_url(); ?>/index.php/shop" class="button large color-hover">Buy now</a>
                     </div>
-                    <div class="cover">
-                        <p>Led Signs</p>
-                    </div>
-                    <a href="index.php/shop" class="stretched-link"></a>
-                </div>
-                <div class="banner-item" id="t-shirt">
-                    <div class="top">
-                    </div>
-                    <div class="cover">
-                        <p>T-shirts</p>
-                    </div>
-                    <a href="index.php/shop" class="stretched-link"></a>
-                </div>
-                <div class="banner-item" id="car-decor">
-                    <div class="top">
-                    </div>
-                    <div class="cover">
-                        <p>Car decoration</p>
-                    </div>
-                    <a href="index.php/shop" class="stretched-link"></a>
                 </div>
             </div>
+        </div>
+    </div>
+
+        
+        
+    <div class="custom-homepage-container"> 
+    
+        <section class="store-banner">
+            <div class="container">
+                <div class="row mb-5 justify-content-between">
+                    <div class="col-12 col-md-4 demo-store-box" id="led">
+                        <div class="store-card">
+                            <div class="store-card-img">
+                            </div>
+                            <div class="store-card-body">
+                                <p>LED Signs</p>
+                            </div>
+                        </div>
+                        <!-- Add js onmouseover for cards -->
+                        <a href="<?php echo get_term_link( 'signs','product_cat') ?>"  class="stretched-link"></a>
+                    </div>
+                    <div class="col-12 col-md-4 demo-store-box" id="t-shirt">
+                        <div class="store-card">
+                            <div class="store-card-img">
+                            </div>
+                            <div class="store-card-body">
+                                <p>T-shirts</p>
+                            </div>
+                        </div>
+                        <a href="<?php echo get_term_link( 'tees','product_cat') ?>"  class="stretched-link"></a>
+                    </div>
+                    <div class="col-12 col-md-4 demo-store-box" id="#">
+                        <div class="store-card">
+                            <div class="store-card-img">
+                            </div>
+                            <div class="store-card-body">
+                                <p>Car decoration</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
         </section>
-    <!-- banner section end -->
         
     <!-- Main container -->
+<!--
     <section class="main-section">
         <div class="cont">
             <p>Ad Store it's a online store which sells printed products, led signs and t-shirts (message tees). Just choose your product, design it and order. It is so easy! </p>
         </div>
     </section>
+-->
 </div> 
 </div><!-- #primary -->        
         

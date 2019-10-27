@@ -30,10 +30,10 @@ need to setup box-sixing and padding, margin for all *{};
 
 html, body {
     min-height:100%;
-    font-family: 'Play', sans-serif;
-    background: rgba(80,80,80,0.2);
+    font-family: 'Poppins', sans-serif;
+    background: #eee;
+    line-height: 1;
 }
-
 
 /* Specified */
 
@@ -67,26 +67,8 @@ html, body {
     flex-direction: row;
 }
 
-.black-bg {
-    background-color: #000;
-}
-
-.button1 {
-    padding: 15px 50px 15px 50px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    background: rgba(33,37,41,1);
-    color: #eee;
-    text-decoration: none;
-    border-radius: 5px;
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
-    box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
-}
-
-.button1:hover {
-    text-decoration: none;
-    color: #edd;
-    background: rgba(33,37,41,0.9);
+.text-red {
+    color: #ff4136;
 }
 
 
@@ -102,18 +84,14 @@ html, body {
 .site-header {
     width: 100%;
     margin-bottom: 0;
-    background: linear-gradient(rgba(255,138,36,1.0), rgba(255,138,38,0.7)), url("res/banner_1.png") center no-repeat;
-    background-size: cover;
-    position: relative;
+    
     z-index: 1; 
     /* ISSUE - this needs to have z-inde:1 otherwise when use flexbox, page content goes over navbar */
 }
 
 /* checking if is not "home". Default_page class added if is home. See <body php ...> Using NOT pseudoclass */
 body:not(.default_page):not(.home) #main-header {
-    min-height: 0;
-    max-height: 200px;
-    background: rgba(86,86,86,1);
+    
 }
 
 .site-content {
@@ -121,24 +99,30 @@ body:not(.default_page):not(.home) #main-header {
 }
 
 
+
+
 /* Header */
+
+
 
 /* Top-navbar */
 .site-logo a {
     text-decoration: none;
-    color: #eee;
+    color: #212529;
     font-size: 3rem;
 }
 
 .top-nav-ul {
-    justify-content: flex-end;
+    padding-top: 0;
+/*    justify-content: flex-end;*/
     list-style: none;
 }
 
 .top-nav-ul li a {
     padding: 0 10px;
     text-decoration: none;
-    color: #eee;
+    color: #212529;
+    font-size: 1.6rem;
 }
 
 
@@ -149,12 +133,14 @@ body:not(.default_page):not(.home) #main-header {
     margin: 0 auto;
     padding: 0;
     text-transform: uppercase;
+    font-family: 'Play', sans-serif;
     font-size: 1rem;
+    color: #111;
 }
 
 .menu-toggle {
 	padding: 10px;
-	color: #eee;
+	color: #222;
 	font-size: 2.6rem;
 	cursor: pointer;
 	display: none;
@@ -165,10 +151,14 @@ body:not(.default_page):not(.home) #main-header {
     flex-wrap: wrap;
     justify-content: center;
     margin-right: 20px;
-    margin-top: 3rem;
+    margin-top: 1rem;
     margin-bottom: 0;
     list-style: none;
     line-height: 2.6rem;
+}
+
+#top-nav ul {
+    margin-bottom: 0;
 }
 
 .menu-item {
@@ -182,7 +172,7 @@ body:not(.default_page):not(.home) #main-header {
     margin: 0 0 0 2rem;
     position: relative;
     text-decoration: none;
-    color: #eee;
+    color: #222;
     letter-spacing: 2px;
 }
 
@@ -191,7 +181,7 @@ body:not(.default_page):not(.home) #main-header {
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: #ee1111;
+    background-color: #ff4136;
     left: 0;
     transform: scaleX(0);
     transition: all 0.2s;
@@ -222,22 +212,22 @@ body:not(.default_page):not(.home) #main-header {
 
 .drop-menu {
     flex-direction: column;
-    align-items: stretch;
     position: absolute;
-    z-index: 10;
+    /*z-index: 10;*/
 }
 
 .drop-menu .menu-item {
     line-height: 1.2rem;
-    background: #212529;
+    background: #eee;
     animation: slideIn 0.1s forwards;
 }
 
 .drop-menu .menu-item a {
     margin: 0 1rem;
     padding: 0.68rem 1rem;
-    display: inline-block
-    /* needed in chrome - if use need to adjust linehight - .dropdown .menu-it */        
+    display: inline-block;
+    color: #212529;
+    /* needed in chrome - if use need to adjust linehight - .dropdown .menu-it */ 
 }
 
 
@@ -250,6 +240,99 @@ body:not(.default_page):not(.home) #main-header {
 }
 
 
+
+
+
+
+/* Hero */
+
+.hero-content {
+    text-align: left;
+}
+
+.hero-content h3 {
+	color: #fff;
+    padding: 0;
+    margin: 5px 0;
+}
+
+.hero-content p {
+    color: #fff;
+    font-weight: 400;
+    line-height: 24px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.hero-content p span {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header-area.bg-off-white {
+    background: #000 none repeat scroll 0 0;
+}
+
+.hero-wrapper {
+    background-attachment: scroll;
+    background: linear-gradient(to right, rgba(120, 120, 120, 0.4), rgba(80, 80, 80, 0.2)), url("res/dark-1836961.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 200px 30px;
+    background-position: center center;
+}
+.hero-wrapper {
+    position: relative;
+}
+
+.hero-wrapper::before {
+    background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.button {
+    border-radius: 30px;
+    border-width: 1px;
+    border-style: solid;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 26px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: all 0.25s ease 0s;
+}
+.button.color-hover:hover {
+    background: #ee3333 none repeat scroll 0 0;
+    border-color:  #ee3333;
+    color: #fff;
+    text-decoration: none;
+}
+
+.section-title h1 {
+    text-transform: uppercase;
+}
+.demo-img a::before {
+    background: #ff4136 none repeat scroll 0 0;
+}
+.button.large {
+    height: 42px;
+    line-height: 40px;
+    padding: 0 32px;
+}
 
 
 
@@ -308,6 +391,7 @@ body:not(.default_page):not(.home) .head-txt {
 
 /* Page content */
 
+
 section {
     max-width:1280px;
     margin-left: auto;
@@ -350,12 +434,53 @@ section {
     padding: 2rem 1rem;
 }
 
+.store-banner {
+    min-width: 100%;
+    margin: 2rem 0;
+}
+
+.demo-store-box {
+    padding: 0 10px;
+}
+
+.store-card {
+    background: #fff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5)
+}
+
+.store-card-img {
+    width: 100%;
+    height: 300px;
+}
+
+#led .store-card-img,
+#t-shirt .store-card-img {
+    background: linear-gradient(rgba(253,154,40,0), rgba(253,154,40,0)), url("res/city_lights.jpg") center no-repeat;
+    background-size: cover;
+}
+
+.store-card-body {
+    height: 60px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.store-card-body p {
+    line-height: 60px;
+}
+
+.stretched-link:hover {
+    background: #aaa;
+}
+
+
+
 .main-banner {
     min-width: 100%;
     padding: 4rem 0;
 }
 
-.shop-banner {
+.s-banner {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -443,28 +568,28 @@ section {
     border-bottom: 2px solid #eee;
 }
 
-#led {
+#led1 {
     background: linear-gradient(rgba(253,154,40,0), rgba(253,154,40,0)), url("res/city_lights.jpg") center no-repeat;
     background-size: cover;
 }
 
-#led .cover{
+#led1 .cover{
     clip-path: polygon(0 45%, 100% 50%, 100% 100%, 0 100%);
 }
 
-#led .cover p:after {
+#led1 .cover p:after {
     border-bottom: 2px solid #FD9A28;
 }
 
-#t-shirt {
+#t-shirt1 {
     background: rgba(38,138,255,1);
 }
 
-#t-shirt .cover{
+#t-shirt1 .cover{
     clip-path: polygon(0 50%, 100% 55%, 100% 100%, 0 100%);
 }
 
-#t-shirt .cover p:after {
+#t-shirt1 .cover p:after {
     border-bottom: 2px solid #268AFF;
 }
 
@@ -495,11 +620,12 @@ section {
 
 /*Footer */
 footer {
-    padding: 3rem;
+    padding: 2rem;
     margin-top: 20px;
-/*    background: #f16850;*/
-    background: #268AFF;
+    background: #444;
+/*    background: #268AFF;*/
     color: #eee;
+    font-family: 'Play', sans-serif;
     font-size: 1.2rem;
 }
 
@@ -514,8 +640,28 @@ footer a:hover {
 }
 
 footer p {
-    margin-top: 2rem;
+    margin-top: 1.6rem;
     margin-bottom: 0;
+}
+
+footer h2 {
+    line-height: 2.4rem;
+}
+
+footer h3 {
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+}
+
+.f-links {
+    margin-top: 1.6rem;
+}
+
+.black-bg {
+    background-color: #000;
+}
+
+.black-bg a {
     color: #eee;
 }
 
@@ -526,11 +672,6 @@ footer p {
 
 /* Responsive */
 @media (max-width: 1300px) {
-    .site-header {
-        height: 40vh;
-        min-height: 300px;
-    }
-    
     .brand {
         font-size: 2rem;
     }
@@ -565,8 +706,12 @@ footer p {
         z-index: 11;
     }
     
-    .site-logo {
+    .site-logo h1 {
         text-align: center;
+    }
+    
+    .fixed a, .fixed ul li a, .fixed .menu-toggle {
+        color: #eee;
     }
     
     .site-top-icons {
@@ -583,6 +728,11 @@ footer p {
     
     .top-nav-ul {
        margin: 0;
+        
+    }
+    
+    .top-nav-ul li a {
+   
     }
     
     .brand {
@@ -607,6 +757,10 @@ footer p {
     .my-navbar ul li a{
         margin-left: 0;
         margin-bottom: 1rem;
+    }
+    
+    .menu-item a {
+        color: #eee;
     }
     
     .head-img {
@@ -646,12 +800,34 @@ footer p {
         position: relative;
     }  
 
+    .drop-menu .menu-item {
+        background: #212529;
+    }
+    
+    .drop-menu .menu-item a {
+        color: #eee;
+    }
     
     .head-pic {
         display: none;
     }
     
-    .shop-banner {
+    .hero-wrapper {
+        background: linear-gradient(to right, rgba(80, 80, 80, 1), rgba(80, 80, 80, 1));
+    }
+    
+    .hero-content {
+        text-align: center;
+        width: 100%;
+    }
+    
+    
+    
+    
+    
+    
+    
+    .s-banner {
         flex-direction: column;
     }
     

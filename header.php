@@ -8,7 +8,6 @@
         <?php bloginfo('name'); ?> |
         <?php is_front_page() ? bloginfo('description') : wp_title(); ?>
     </title>
-    
     <link rel="stylesheet" href="<?php bloginfo('template_url')?>/css/bootstrap.css">
     
     <?php wp_head(); ?>
@@ -30,27 +29,27 @@
     -->
             <div class="site-navbar-top">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-12 mb-3 col-md-6">
+                    <div class="row align-items-center">
+                        <div class="col-12 col-md-6">
                             <div class="site-logo">
-                                <a href="index.html" class="site-logo">AdStore</a>
+                                <h1><a href="<?php echo home_url(); ?>" class="site-logo ">AdStore</a></h1>
                             </div>
                         </div>
                         <div class="col-12 col-md-6">
-                            <div class="site-top-icons" id='top-nav'>
-                                <ul class='cont-flex top-nav-ul'>
-                                    <li><a href="#"><span class="icon icon-person"></span>Account</a></li>
-                                    <li>
-                                        <a href="cart.html" class="site-cart">
-                                        <span class="icon icon-shopping_cart"></span>
-                                        <span class="count">2</span>
-                                        Cart</a>
-                                    </li>
-                                    <!-- Dropdownr -->
-                                    <div class="menu-toggle" id="toggle">
-                                        <i class="fas fa-bars"></i>
-                                    </div>
-                                </ul>
+                            <div class="d-flex flex-row align-items-center justify-content-end">
+                                <div class="site-top-icons" id='top-nav'>
+                                    <ul class='cont-flex top-nav-ul '>
+                                        <li><a href="<?php echo home_url(); ?>/index.php/my-account"><i class="fas fa-user"></i></a></li>
+                                        <li>
+                                            <a href="<?php echo home_url(); ?>/index.php/cart" class="site-cart"><i class="fas fa-cart-arrow-down"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- Dropdown -->
+                                <div class="menu-toggle" id="toggle">
+                                    <i class="fas fa-bars"></i>
+                                </div>
                             </div>
                         </div>
                     </div>

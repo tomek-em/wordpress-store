@@ -65,6 +65,15 @@
         return $items;
     }
 
+// Font-awesome 
+function enqueue_fontawesome() {
+    //    	wp_enqueue_script( 'typekit', 'https://kit.fontawesome.com/3680f9368b.js', array(), '1.0.0' );
+    wp_enqueue_script( 'fontawesome', get_template_directory_uri() . '/js/all.js', array ( 'jquery' ), 1.1, true);
+}
+  
+add_action( 'wp_enqueue_scripts', 'enqueue_fontawesome' );  
+
+
 
 
 //Woocommerce login / logout
