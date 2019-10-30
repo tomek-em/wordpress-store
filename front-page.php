@@ -16,7 +16,7 @@ if( get_option( 'show_on_front' ) != 'posts' ):
                     <div class="hero-content">
                         <h3>AdStore: LEDsign, t-shirt, car decoration.</h3>
                         <p><span></span></p>
-                        <a href="<?php echo home_url(); ?>/index.php/shop" class="button large color-hover">Buy now</a>
+                        <a href="<?php echo home_url(); ?>/index.php/shop" class="t-button large color-hover">Buy now</a>
                     </div>
                 </div>
             </div>

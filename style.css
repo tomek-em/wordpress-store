@@ -1,7 +1,7 @@
 /*
 Theme Name: AdStore
 Theme URI: 127.0.0.1
-Author: the WordPress team
+Author: Tomasz Mejer
 Author URI: http://tomaszmejer.com
 Description: Simple Wordpress Theme
 Version: 1.0
@@ -299,7 +299,7 @@ body:not(.default_page):not(.home) #main-header {
     z-index: -1;
 }
 
-.button {
+.t-button {
     border-radius: 30px;
     border-width: 1px;
     border-style: solid;
@@ -315,7 +315,7 @@ body:not(.default_page):not(.home) #main-header {
     text-transform: uppercase;
     transition: all 0.25s ease 0s;
 }
-.button.color-hover:hover {
+.t-button.color-hover:hover {
     background: #ee3333 none repeat scroll 0 0;
     border-color:  #ee3333;
     color: #fff;
@@ -328,7 +328,7 @@ body:not(.default_page):not(.home) #main-header {
 .demo-img a::before {
     background: #ff4136 none repeat scroll 0 0;
 }
-.button.large {
+.t-button.large {
     height: 42px;
     line-height: 40px;
     padding: 0 32px;
