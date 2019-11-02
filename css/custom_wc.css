@@ -21,6 +21,10 @@
     max-width: unset;
 }
 
+.woocommerce span.onsale {
+    z-index: 0;
+}
+
 .orderby {
     margin: 0 1rem;
 }
@@ -50,6 +54,14 @@
 .wc-tabs {
     display: none;
 }
+
+
+.product_type_simple {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
 
 
 @media (max-width: 1300px) {

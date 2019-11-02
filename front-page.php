@@ -5,25 +5,7 @@ get_header();
 
 if( get_option( 'show_on_front' ) != 'posts' ):
 ?>
-    <div id="primary" >
-        
-        <!-- Hero
-    ============================================ -->
-    <div class="hero-wrapper text-center">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-6">
-                    <div class="hero-content">
-                        <h3>AdStore: LEDsign, t-shirt, car decoration.</h3>
-                        <p><span></span></p>
-                        <a href="<?php echo home_url(); ?>/index.php/shop" class="t-button large color-hover">Buy now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-        
+    <div id="primary" >    
         
     <div class="custom-homepage-container"> 
     

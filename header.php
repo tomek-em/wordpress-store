@@ -27,36 +27,36 @@
                 </ul>
             </nav>    
     -->
-            <div class="site-navbar-top">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-12 col-md-6">
-                            <div class="site-logo">
-                                <h1><a href="<?php echo home_url(); ?>" class="site-logo ">AdStore</a></h1>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="d-flex flex-row align-items-center justify-content-end">
-                                <div class="site-top-icons" id='top-nav'>
-                                    <ul class='cont-flex top-nav-ul '>
-                                        <li><a href="<?php echo home_url(); ?>/index.php/my-account"><i class="fas fa-user"></i></a></li>
-                                        <li>
-                                            <a href="<?php echo home_url(); ?>/index.php/cart" class="site-cart"><i class="fas fa-cart-arrow-down"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
+            <nav class="my-navbar">
+                <div class="site-navbar-top">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-6 col-lg-6">
+                                <div class="site-logo">
+                                    <h1><a href="<?php echo home_url(); ?>" class="site-logo ">AdStore</a></h1>
                                 </div>
-                                <!-- Dropdown -->
-                                <div class="menu-toggle" id="toggle">
-                                    <i class="fas fa-bars"></i>
+                            </div>
+                            <div class="col-6 col-lg-6">
+                                <div class="d-flex flex-row align-items-center justify-content-end">
+                                    <div class="site-top-icons" id='top-nav'>
+                                        <ul class='cont-flex top-nav-ul '>
+                                            <li><a href="<?php echo home_url(); ?>/index.php/my-account"><i class="fas fa-user"></i></a></li>
+                                            <li>
+                                                <a href="<?php echo home_url(); ?>/index.php/cart" class="site-cart"><i class="fas fa-cart-arrow-down"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!-- Dropdown -->
+                                    <div class="menu-toggle" id="toggle">
+                                        <i class="fas fa-bars"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <nav class="my-navbar">
+
                 <div class="cont">
                     <?php
                     wp_nav_menu( array(
@@ -68,17 +68,19 @@
                 </div>
             </nav>
             
-            <div class="cont">
-<!--
-                <div class="head-txt">
-                <h2 class="head-title animated fadeIn delay-1s">Custom
-                        <span class="txt-type" data-wait="3000" data-words='["led sign", "t-shirt", "car decoration"]'></span>
-                    </h2>
-                    <div class="header-but animated fadeIn delay-1s">
-                        <a class="button1" href="index.php/shop">Shop Now</a>
+            <!-- Hero
+            ============================================ -->
+            <div class="hero-wrapper text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="hero-content">
+                                <h3>AdStore: LEDsign, t-shirt, car decoration.</h3>
+                                <p><span></span></p>
+                                <a href="<?php echo home_url(); ?>/index.php/shop" class="t-button large color-hover">Buy now</a>
+                            </div>
+                        </div>
                     </div>
-            
                 </div>
--->
-            </div> 
+            </div>
         </header>

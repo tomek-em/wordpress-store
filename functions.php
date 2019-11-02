@@ -19,7 +19,6 @@
 
 
 //Enqueue JS 
-
     function load_js() {
         wp_enqueue_script( 'store', get_template_directory_uri() . '/js/store.js', array ( 'jquery' ), 1.1, true);
     }
@@ -29,15 +28,20 @@
 
 
 //Enqueue Fonts
-
     function add_google_fonts() {
         wp_enqueue_style( ' add_google_fonts ', ' https://fonts.googleapis.com/css?family=Play:400,700&display=swap', false );
     }
     add_action( 'wp_enqueue_scripts', 'add_google_fonts' );
 
+// Font-awesome 
+function enqueue_fontawesome() {
+    //    	wp_enqueue_script( 'typekit', 'https://kit.fontawesome.com/3680f9368b.js', array(), '1.0.0' );
+    wp_enqueue_script( 'fontawesome', get_template_directory_uri() . '/js/all.js', array ( 'jquery' ), 1.1, true);
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_fontawesome' ); 
+
 
 //Enqueue Animate CSS
-
     function add_animate_css() {
         wp_enqueue_style( ' add_animate_css ', get_template_directory_uri() . '/css/animate.min.css' );
     }
@@ -45,7 +49,6 @@
 
 
 // Menu Login - out 
-
     add_filter( 'wp_nav_menu_objects', 'mytheme_menufilter', 10, 2 );
     function mytheme_menufilter($items, $args) {
         // want our MAINMENU to have MAX of 7 items
@@ -64,14 +67,7 @@
         }
         return $items;
     }
-
-// Font-awesome 
-function enqueue_fontawesome() {
-    //    	wp_enqueue_script( 'typekit', 'https://kit.fontawesome.com/3680f9368b.js', array(), '1.0.0' );
-    wp_enqueue_script( 'fontawesome', get_template_directory_uri() . '/js/all.js', array ( 'jquery' ), 1.1, true);
-}
-  
-add_action( 'wp_enqueue_scripts', 'enqueue_fontawesome' );  
+ 
 
 
 
@@ -110,7 +106,6 @@ function add_login_logout_link($items, $args) {
 
 // Three JS
     function three_enq() {
-        
         wp_enqueue_script( 'three_js', get_theme_file_uri( '/js/three.min.js' ), array('jquery'), null, true );
         wp_enqueue_script( 'obj_loader', get_theme_file_uri( '/js/OBJLoader.js' ), array('jquery'), null, true );
         wp_enqueue_script( 'mtl_loader', get_theme_file_uri( '/js/MTLLoader.js' ), array('jquery'), null, true );
@@ -118,7 +113,6 @@ function add_login_logout_link($items, $args) {
     }
 
         //add_action( 'wp_enqueue_scripts', 'three_enq' ); 
-
 
 ?>
 
