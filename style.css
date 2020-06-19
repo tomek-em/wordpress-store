@@ -17,8 +17,15 @@ need to setup box-sixing and padding, margin for all *{};
 CARDS ISSUE stretched-link:after - default has z-index: 1
 */
 
+/*
+TO DO
+- rozważyć zapisanie @media dla różnych rozmiarów w oddzielnych plikach
+*/
+
 /* Colors:
-#268AFF / #FD9A28 */
+#268AFF / #FD9A28
+
+Hunter Green (#435E55FF) and Raspberry (#D64161FF)   -- */
 
 * {
     box-sizing: border-box;
@@ -30,11 +37,14 @@ CARDS ISSUE stretched-link:after - default has z-index: 1
 html, body {
     min-height:100%;
     font-family: 'Poppins', sans-serif;
-    background: #ddd;
+    background: #fafafa;
     line-height: 1;
 }
 
-/* Specified */
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
 
 .fixed {
     position: fixed;
@@ -75,7 +85,7 @@ html, body {
 }
 
 
-/* Bootstrap */ 
+/* Bootstrap */
 
 .stretched-link::after {
     z-index: 0;
@@ -93,28 +103,25 @@ html, body {
     display: flex;
     flex-direction: column;
     align-content: space-between;
+    background: #e8e8e8;
 }
 
 .site-header {
     width: 100%;
-    background: #eee;
+    background: #fafafa;
     margin-bottom: 0;
-    z-index: 1; 
-    /* ISSUE - this needs to have z-inde:1 otherwise when use flexbox, page content goes over navbar */
+    z-index: 1;
 }
 
 /* checking if is not "home". Default_page class added if is home. See <body php ...> Using NOT pseudoclass */
 body:not(.default_page):not(.home) #main-header {
-    
+
 }
 
 .site-content {
     flex:1;
 }
 
-.home .wrapper a {
-    
-}
 
 .wrap {
     flex: 1;
@@ -130,12 +137,11 @@ body:not(.default_page):not(.home) #main-header {
 /* Header */
 
 
-
 /* Top-navbar */
 .site-logo a {
     text-decoration: none;
     color: #212529;
-    font-size: 3rem;
+    font-size: 36px;
 }
 
 .top-nav-ul {
@@ -147,7 +153,7 @@ body:not(.default_page):not(.home) #main-header {
 .top-nav-ul li a {
     padding: 0 10px;
     text-decoration: none;
-    font-size: 1.6rem;
+    font-size: 22px;
 }
 
 
@@ -160,14 +166,25 @@ body:not(.default_page):not(.home) #main-header {
     padding: 0;
     text-transform: uppercase;
     font-family: 'Play', sans-serif;
-    font-size: 1rem;
+    font-size: 14px;
     color: #111;
+    transform: translateX(100rem);
+    animation: slideIn 0.5s forwards;
+}
+
+@media (max-width: 882px) {
+  .my-navbar {
+    max-width: 100vw;
+    transform: translateX(0);
+    animation: none 0s forwards;
+    position: fixed;
+  }
 }
 
 .menu-toggle {
 	padding: 10px;
 	color: #222;
-	font-size: 2.6rem;
+	font-size: 2.2rem;
 	cursor: pointer;
 	display: none;
 }
@@ -177,7 +194,7 @@ body:not(.default_page):not(.home) #main-header {
     flex-wrap: wrap;
     justify-content: center;
     margin-right: 20px;
-    margin-top: 1rem;
+    margin-top: 0;
     margin-bottom: 0;
     list-style: none;
     line-height: 2.5rem;
@@ -193,8 +210,10 @@ body:not(.default_page):not(.home) #main-header {
 
 .menu-item {
     list-style: none;
+/*
     transform: translateX(100rem);
     animation: slideIn 0.5s forwards;
+*/
 }
 
 .menu-item a {
@@ -211,7 +230,7 @@ body:not(.default_page):not(.home) #main-header {
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: #ff4136;
+    background-color: #D64161;
     left: 0;
     transform: scaleX(0);
     transition: all 0.2s;
@@ -235,7 +254,6 @@ body:not(.default_page):not(.home) #main-header {
 }
 
 .my-navbar ul .sub-menu {
-    /* Can try position top -1000 if want to use pure CSS */
     display: none;
     margin-top: 0;
 }
@@ -243,12 +261,12 @@ body:not(.default_page):not(.home) #main-header {
 .drop-menu {
     flex-direction: column;
     position: absolute;
-    
+
 }
 
 .drop-menu .menu-item {
     line-height: 1.2rem;
-/*    background: #eee;*/
+/*    background: #fafafa;*/
     animation: slideIn 0.1s forwards;
     z-index: 10;
 }
@@ -258,12 +276,12 @@ body:not(.default_page):not(.home) #main-header {
     padding: 0.68rem 1rem;
     display: inline-block;
 /*    color: #212529;*/
-    /* needed in chrome - if use need to adjust linehight - .dropdown .menu-it */ 
+    /* needed in chrome - if use need to adjust linehight - .dropdown .menu-it */
 }
 
 
 .sub-menu {
-    background: #eee;
+    background: #fafafa;
 }
 
 .brand {
@@ -283,6 +301,8 @@ body:not(.default_page):not(.home) #main-header {
 
 .hero-content {
     text-align: left;
+    transform: translateX(100rem);
+    animation: slideIn 0.5s forwards;
 }
 
 .hero-content h3 {
@@ -323,29 +343,12 @@ body:not(.default_page):not(.home) #main-header {
 
 .home .hero-wrapper {
     display: block;
-    
 }
 
 .hero-wrapper {
     display: none;
 }
 
-/*
-.hero-wrapper::before {
-    background: rgba(0, 0, 0, 0.6) none repeat scroll 0 0;
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: -1;
-}
-*/
-
-.hero-wrapper1 {
-    
-}
 
 .t-button {
     border-radius: 30px;
@@ -365,8 +368,8 @@ body:not(.default_page):not(.home) #main-header {
 }
 
 .t-button.color-hover:hover {
-    background: #ee3333 none repeat scroll 0 0;
-    border-color:  #ee3333;
+    background: #D64161 none repeat scroll 0 0;
+    border-color:  #D64161;
     color: #fff;
     text-decoration: none;
 }
@@ -397,7 +400,7 @@ body:not(.default_page):not(.home) #main-header {
     width: 500px;
     background: linear-gradient(rgba(100,100,100,0), rgba(100,100,100,0)), url("res/car_1.png") center no-repeat;
     background-size: cover;
-    
+
 }
 
 .head-txt {
@@ -495,10 +498,52 @@ section {
     height: 300px;
 }
 
-#led .store-card-img,
-#t-shirt .store-card-img {
+#led .store-card-img {
     background: linear-gradient(rgba(253,154,40,0), rgba(253,154,40,0)), url("res/city_lights.jpg") center no-repeat;
     background-size: cover;
+}
+
+#led:hover {
+  -webkit-transform: scale(1.01);
+}
+
+#led-img {
+    background: linear-gradient(rgba(253,154,40,0), rgba(253,154,40,0)), url("res/city_lights_grey.jpg") center no-repeat;
+    background-size: cover;
+    height: 100%;
+    -webkit-transition: all .8s ease-in-out;
+}
+
+#t-shirt .store-card-img {
+    background: linear-gradient(rgba(253,154,40,0), rgba(253,154,40,0)), url("res/tshirt.jpg") center no-repeat;
+    background-size: cover;
+}
+
+#t-shirt:hover {
+    -webkit-transform: scale(1.01)
+}
+
+#shirt-img {
+    background: linear-gradient(rgba(253,154,40,0), rgba(253,154,40,0)), url("res/tshirt_grey.jpg") center no-repeat;
+    background-size: cover;
+    height: 100%;
+    -webkit-transition: all .8s ease-in-out;
+}
+
+#car .store-card-img {
+    background: linear-gradient(rgba(253,154,40,0), rgba(253,154,40,0)), url("res/car_1.jpg") center no-repeat;
+    background-size: cover;
+}
+
+#car:hover {
+  -webkit-transform: scale(1.01);
+}
+
+#car-img {
+    background: linear-gradient(rgba(253,154,40,0), rgba(253,154,40,0)), url("res/car_1grey.jpg") center no-repeat;
+    background-size: cover;
+    height: 100%;
+    -webkit-transition: all .8s ease-in-out;
 }
 
 .store-card-body {
@@ -536,7 +581,7 @@ section {
     margin: 0 0.9%;
     border-radius: 5px;
     background-color: #ccc;
-    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0); 
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
     box-shadow: 0px 10px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
 }
 
@@ -548,8 +593,8 @@ section {
     min-width: 80px;
     padding: 1rem 0.5rem 0.5rem 0.5rem;
     transform: translate(-50%, 0);
-    background-position: center; 
-    background-repeat: no-repeat; 
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: contain;
 }
 
@@ -636,7 +681,7 @@ section {
 }
 
 #car-decor {
-    background: rgba(238,17,17,0.9); 
+    background: rgba(238,17,17,0.9);
 }
 
 #car-decor .cover{
@@ -649,32 +694,138 @@ section {
 
 
 
+.product-template-default h2{
+    font-family: 'Play', sans-serif;
+    text-transform: uppercase;
+}
+
+
+
 
 /* Three JS */
 
-#prod-canvas {
-    width: 600px;
-    height: 400px;
+#canvas-cont {
+    width: 700px;
+    float:left;
+    margin-top: 12px;
+    margin-bottom: 20px;
 }
 
+#prod-canvas {
+    width: 100%;
+    height: 400px;
+    padding: 0px 0;
+    font-family: 'Righteous', sans-serif;
+}
+
+@media (max-width: 882px) {
+    #canvas-cont {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 98%;
+    }
+
+    #prod-canvas {
+
+    }
+}
+
+#panel {
+    width: 100%;
+    font-family: 'Play', sans-serif;
+    text-align: left;
+    background: #eee;
+    padding: 5px 10px;
+    float: left;
+    color: #435E55;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+#file {
+    margin-bottom: 8px;
+    margin-left: 20px;
+    margin-right: auto;
+    margin-top: 12px;
+    color: #435E55;
+}
+
+.custom-panel {
+    float: left;
+    margin: 5px 0;
+    margin-right: 20px;
+}
+
+input[type="radio"]{
+
+}
+
+#panel label::before {
+
+}
+
+
+input[type="radio"]:checked + label::before  {
+    top: 0;
+    width: 100%;
+    height: 2em;
+    background: white;
+}
+
+#panel label {
+    margin-bottom: 0;
+    margin-right: 8px;
+    color: #212528;
+}
+
+#edt-text {
+    margin: 0;
+    margin-bottom: 5px;
+    border: 1px solid #212528;
+    border-radius: 1px;
+    background: #bbbaba;
+    padding: 5px 10px;
+    line-height: 0;
+    font-size: 16px;
+    color: #435E55;
+}
+
+#sub-btn {
+    border: 1px solid #546478;
+    background: #546478;
+    color: #212528;
+    border-radius: 1px;
+    display: inline-block;
+    padding: 5px 30px;
+    margin-left: 5px;
+    color: #eee;
+}
+
+#sub-btn:hover{
+    background: #545478;
+    border: 1px solid #545478;
+    color: #eee;
+    cursor:  pointer;
+}
 
 
 
 /*Footer */
 
 footer {
-    padding: 2rem;
+    padding: 1rem 2rem;
     margin-top: 20px;
-    background: #444;
+/*    background: #435E55;*/
 /*    background: #268AFF;*/
+    background: #343448;
     color: #eee;
-    font-family: 'Play', sans-serif;
+/*    font-family: 'Play', sans-serif;*/
     font-size: 1.2rem;
 }
 
 footer a {
     color: #eee;
     text-decoration: none;
+    font-size: 0.9rem;
 }
 
 footer a:hover {
@@ -683,16 +834,18 @@ footer a:hover {
 }
 
 footer p {
-    margin-top: 1.6rem;
+    margin-top: 1.4rem;
     margin-bottom: 0;
+    font-size: 0.9rem;
 }
 
 footer h2 {
     line-height: 2.4rem;
+    font-size: 1.6rem;
 }
 
 footer h3 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     line-height: 2.4rem;
 }
 
@@ -701,7 +854,7 @@ footer h3 {
 }
 
 .black-bg {
-    background-color: #212529;
+    background-color: #111;
 }
 
 .black-bg a {
@@ -709,80 +862,94 @@ footer h3 {
 }
 
 
+/* Woocommerce addition variables ---- */
+
+.wccpf-fields-container {
+    display: none;
+}
 
 
 /* ------------------------------------*/
 /* Responsive */
 
-@media (max-width: 1300px) {
+@media (max-width: 1400px) {
+
+    .wrap {
+        padding: 4rem;
+    }
+
     .brand {
         font-size: 2rem;
     }
-    
+
     .head-img {
         display: none;
     }
-    
+
     .head-txt {
         min-height: 90px;
         width:900px;
     }
-    
+
     .head-title {
         font-size: 2.6rem;
     }
-    
+
     .banner-item > .top {
         font-size: 2rem;
     }
-    
+
     .cover p {
         bottom: 40px;
+    }
+
+    .my-navbar {
+        font-size: 0.8em;
     }
 }
 
 
 @media (max-width: 882px) {
-    
+
     .menu-toggle {
         display: block;
         z-index: 11;
     }
-    
+
     .site-logo h1 {
         text-align: center;
     }
-    
+
     .site-logo a {
         font-size: 1.6rem;
     }
-    
+
     .fixed a, .fixed ul li a, .fixed .menu-toggle {
         color: #eee;
     }
-    
+
     .site-top-icons {
         text-align: center;
     }
-    
+
     .my-navbar {
         flex-direction: column;
         padding: 0 1rem;
         margin: 0;
         width:100%;
-        background: #212529; 
+        background: #111;
     }
-    
+
     .top-nav-ul {
        margin: 0;
-        
+
     }
-    
+
     .brand {
         font-size: 2rem;
     }
-    
-    .my-navbar ul { 
+
+    .my-navbar ul {
         padding: 0;
         margin-right: 0;
         margin-top: 0;
@@ -792,28 +959,28 @@ footer h3 {
 		text-align: center;
         display: none;
     }
-    
+
     .my-navbar ul li{
         margin: 0;
     }
-    
+
     .my-navbar ul li a{
         margin-left: 0;
         margin-bottom: 1rem;
     }
-    
+
     .my-navbar a {
         color: #eee;
     }
-    
+
     .menu-item a, .menu-toggle {
         color: #eee;
     }
-    
+
     .head-img {
         display: none;
     }
-    
+
     .head-txt {
         min-height: 120px;
         min-width: 90%;
@@ -824,61 +991,64 @@ footer h3 {
         text-align: center;
         z-index: -1;
     }
-    
+
     .head-title {
         font-size: 2.4rem;
         padding-bottom: 1rem;
     }
-    
+
     .sub-menu {
         align-items: flex-start;
-        background: #212529;
+        background: #111;
         line-height: 3rem;
     }
-    
+
     .sub-menu li {
         margin: 0;
     }
-    
+
     .my-navbar ul .sub-menu a {
         margin: 0;
     }
-    
+
     .drop-menu {
         position: relative;
-    }  
+    }
 
     .drop-menu .menu-item {
-        background: #212529;
+        background: #111;
     }
-    
+
     .drop-menu .menu-item a {
         color: #eee;
     }
-    
+
     .head-pic {
         display: none;
     }
-    
+
     .hero-wrapper {
-        background: linear-gradient(to right, rgba(80, 80, 80, 1), rgba(80, 80, 80, 1));
+        background: #343448;
     }
-    
+
     .hero-content {
         text-align: center;
         width: 100%;
     }
-    
-    
-    
-    
-    
-    
-    
+
+    .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+
+
+
+
     .s-banner {
         flex-direction: column;
     }
-    
+
     .banner-item {
         min-height: 350px;
         min-width: 90%;
@@ -886,11 +1056,14 @@ footer h3 {
         margin-right: auto;
         margin-bottom: 1.5rem;
     }
-    
+
     .cover p {
         bottom:20px;
     }
 
-}
+    .links {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
 
-    
+}

@@ -1,4 +1,5 @@
 jQuery(function($){
+    
     var i = 0;
     
     // Toggle menu ------------
@@ -95,8 +96,63 @@ jQuery(function($){
     };
         
     resizeDown();
+
+console.log('js-loaded');
+    
+    
+    
+// CARDS 
+// can't use CSS hover becouse of stretched link 
+// find easier solutin
+var state = 0; 
+$('#led').mouseover(function() {
+     
+    if (state == 0) {
+        $('#led-img').hide();
+        state = 1;
+    }
+});   
+
+$('#led').mouseout(function() {
+    if (state == 1) {
+        $('#led-img').show();
+        state = 0;
+    }
+});
+    
+$('#t-shirt').mouseover(function() {
+     
+    if (state == 0) {
+        $('#shirt-img').hide();
+        state = 1;
+    }
+});   
+
+$('#t-shirt').mouseout(function() {
+    if (state == 1) {
+        $('#shirt-img').show();
+        state = 0;
+    }
 });
 
+$('#car').mouseover(function() {
+     
+    if (state == 0) {
+        $('#car-img').hide(20);
+        state = 1;
+    }
+});   
+
+$('#car').mouseout(function() {
+    if (state == 1) {
+        $('#car-img').show(20);
+        state = 0;
+    }
+});
+   
+    
+});
+// --------------------
 
 
 

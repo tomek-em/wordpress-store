@@ -1,42 +1,39 @@
       <!-- Footer -->
     <footer>
-        <div class="mt-5 pt-5 pb-5 footer">
+        <div class="mt-3 pt-4 pb-4 footer">
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-xs-12 about-company">
                     <h2>Ad store</h2>
-                    <p class="pr-5">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac ante mollis quam tristique convallis </p>
+                    <p class="pr-5">This website is made only for testing purposes. </p>
                     <p><a href="#"><i class="fab fa-facebook-square mr-1 fa-lg"></i></a></p>
                 </div>
                 <div class="col-lg-3 col-xs-12 links">
-                    <h3 class="mt-lg-0 mt-sm-3">Links</h3>
+                    <h3 class="mt-lg-0 mt-sm-3">What do we do:</h3>
                     <div class="f-links">
-                        <ul class="m-0 p-0">
-                            <li> <a href="#">Lorem ipsum</a></li>
-                            <li> <a href="#">Nam mauris velit</a></li>
-                            <li> <a href="#">Etiam vitae mauris</a></li>
-                            <li> <a href="#">Fusce scelerisque</a></li>
-                            <li> <a href="#">Sed faucibus</a></li>
-                            <li> <a href="#">Mauris efficitur nulla</a></li>
+                        <ul class="m-0 p-0 link-cont">
+                            <li> <a href="#">Led signs</a></li>
+                            <li> <a href="#">Dibond signs</a></li>
+                            <li> <a href="#">Car decoration</a></li>
+                            <li> <a href="#">T-shirt and other fabric ads</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-xs-12 location">
                     <h3 class="mt-lg-0 mt-sm-4">Contact</h3>
-                    <p>22, Lorem ipsum dolor.</p><p> If you have any questions just contact us via email.</p>
-                    <p><i class="fa fa-envelope"> </i> info@hsdf.com</p>
+                    <p>22, Poland.</p><p> If you have any questions just contact us via email.</p>
+                    <p><i class="fa fa-envelope"> </i> office@adstore.com</p>
                 </div>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-3">
                 <div class="col copyright">
-                    <p class=""><small>© 2019. All Rights Reserved.</small></p>
+                    <p class=""><small>© 2019. Tomasz Mejer.</small></p>
                 </div>
             </div>
         </div>
         </div>
     </footer>
     <?php wp_footer() ?>
-
 </div> <!-- /Wrapper  -->
 
     <!--  <script src="https://kit.fontawesome.com/3680f9368b.js"></script>-->

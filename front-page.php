@@ -1,20 +1,21 @@
-<?php 
- 
+<?php
 
-get_header(); 
+
+get_header();
 
 if( get_option( 'show_on_front' ) != 'posts' ):
 ?>
-    <div id="primary" >    
-        
-    <div class="custom-homepage-container"> 
-    
+    <div id="primary" >
+
+    <div class="custom-homepage-container">
+
         <section class="store-banner">
             <div class="container">
                 <div class="row mb-5 justify-content-between">
                     <div class="col-12 col-md-4 demo-store-box" id="led">
                         <div class="store-card">
-                            <div class="store-card-img">
+                            <div class="store-card-img img_led">
+                                <div id="led-img"></div>
                             </div>
                             <div class="store-card-body">
                                 <p>LED Signs</p>
@@ -26,44 +27,41 @@ if( get_option( 'show_on_front' ) != 'posts' ):
                     <div class="col-12 col-md-4 demo-store-box" id="t-shirt">
                         <div class="store-card">
                             <div class="store-card-img">
+                                <div id="shirt-img"></div>
                             </div>
                             <div class="store-card-body">
-                                <p>T-shirts</p>
+                                <p>T-shirt printing</p>
                             </div>
                         </div>
                         <a href="<?php echo get_term_link( 'tees','product_cat') ?>"  class="stretched-link"></a>
                     </div>
-                    <div class="col-12 col-md-4 demo-store-box" id="#">
+                    <div class="col-12 col-md-4 demo-store-box" id="car">
                         <div class="store-card">
                             <div class="store-card-img">
+                                <div id="car-img"></div>
                             </div>
                             <div class="store-card-body">
-                                <p>Car decoration</p>
+                                <p>Car advertising</p>
                             </div>
                         </div>
+                        <a href="<?php echo get_term_link( 'trailer-3d','product_cat') ?>"  class="stretched-link"></a>
                     </div>
                 </div>
             </div>
-        
+
         </section>
-        
-    <!-- Main container -->
-<!--
-    <section class="main-section">
-        <div class="cont">
-            <p>Ad Store it's a online store which sells printed products, led signs and t-shirts (message tees). Just choose your product, design it and order. It is so easy! </p>
-        </div>
-    </section>
+
+
 -->
-</div> 
-</div><!-- #primary -->        
-        
-        
+</div>
+</div><!-- #primary -->
+
+
 <?php
 else :
     ?>
     <div class="wrap">
-    <?php    
+    <?php
     if ( have_posts() ) :
         while ( have_posts() ) : the_post(); ?>
             <h2><?php the_title() ?></h2>
@@ -80,47 +78,6 @@ else :
 <?php
     endif;
 ?>
-<!--
-        <section class="boxes">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 ">  
-                        <div class="card text-center">
-                            <div class="box">
-                                <img src="..." class="card-img-top" alt=" ">
-                                <i class="far fa-address-card fa-3x mb-3"></i>
-                            </div>    
-                            <div class="card-body">
-                                <h3>Signs</h3>
-                            </div>
-                            <a href="#" class="stretched-link"></a>
-                        </div>   
-                    </div>
-                   <div class="col-md-4">  
-                        <div class="card text-center">
-                            <div class="box">
-                                <img src="..." class="card-img-top" alt=" ">
-                                <i class="far fa-address-card fa-3x mb-3"></i>
-                            </div>    
-                            <div class="card-body">
-                                <h3>T-shirts</h3>
-                            </div>
-                        </div>   
-                    </div>
-                    <div class="col-md-4">  
-                        <div class="card text-center">
-                            <div class="box">
-                                <img src="..." class="card-img-top" alt=" ">
-                                <i class="far fa-address-card fa-3x mb-3"></i>
-                            </div>    
-                            <div class="card-body">
-                                <h3>Vehicle Advertising</h3>
-                            </div>
-                        </div>   
-                    </div>
-                </div>
-            </div>
-        </section>
--->
- 
+
+
 <?php get_footer(); ?>

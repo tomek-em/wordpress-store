@@ -8,25 +8,16 @@
         <?php bloginfo('name'); ?> |
         <?php is_front_page() ? bloginfo('description') : wp_title(); ?>
     </title>
-    <link rel="stylesheet" href="<?php bloginfo('template_url')?>/css/bootstrap.css">
-    
+
+
+
     <?php wp_head(); ?>
 </head>
 
-<body <?php if(function_exists("body_class") && !is_404()){body_class();} else echo 'class="default_page"'?>> 
+<body <?php if(function_exists("body_class") && !is_404()){body_class();} else echo 'class="default_page"'?>>
     <div class="wrapper">
     <!-- Header -->
         <header class="site-header" id="main-header">
-    <!--
-            <nav class="my-navbar">
-                <h2 class="brand"><a href="index.html">My Store</a></h2>
-                <ul id="menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>    
-    -->
             <nav class="my-navbar">
                 <div class="site-navbar-top">
                     <div class="container">
@@ -67,7 +58,7 @@
                     ?>
                 </div>
             </nav>
-            
+
             <!-- Hero
             ============================================ -->
             <div class="hero-wrapper text-center">
