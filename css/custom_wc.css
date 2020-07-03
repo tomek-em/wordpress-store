@@ -16,7 +16,7 @@
 .woocommerce-MyAccount-navigation {
     display: none;
 }
- 
+
 /* Fixing woocommerce - bootstrap conflict */
 .woocommerce-billing-fields .form-row, .woocommerce-shipping-fields .form-row,.woocommerce form .form-row {
     display: block;
@@ -100,7 +100,7 @@
 }
 
 .woocommerce ul.products li.product a h2, .product-template-default h2 {
-   
+
 }
 
 .woocommerce ul.products li.product  {
@@ -150,14 +150,51 @@
     text-transform: uppercase;
 }
 
-.woocommerce-page div.product div.summary {
-    width: 35%;
-    float: left;
-    margin-left: 40px;
-    position: relative;
-    min-height: 400px;
-    margin-bottom: 0;
+
+
+
+
+
+
+
+.summary {
+  margin-left: 60px;
+  width: 300px;
 }
+
+.woocommerce-page div.product div.summary {
+  width: 32%;
+  float: right;
+  margin-left: 40px;
+  position: relative;
+  min-height: 80px;
+  margin-bottom: 0;
+}
+
+/*  Tshirt product designer */
+.woocommerce-page div.product-type-woodesigner div.summary {
+  float: left;
+  margin: 32px 16px;
+}
+
+.woocommerce-page div.product-type-woodesigner div.summary  .product_meta {
+  margin-top: 20px;
+}
+
+@media (max-width: 1400px) {
+  .woocommerce-page div.product div.summary {
+    float: left;
+    min-height: 40px;
+  }
+
+}
+
+
+
+.wc-tabs-wrapper {
+  /* width: 100%; */
+}
+
 
 
 .woocommerce div.product form.cart div.quantity {
@@ -169,7 +206,7 @@ input, textarea {
 }
 
 .woocommerce div.product form.cart div.quantity {
-    
+
 }
 
 .woocommerce div.product form.cart {
@@ -199,8 +236,15 @@ del .woocommerce-Price-amount {
 }
 
 .summary .price span {
-    color: #111;
+    color: #222;
+    text-decoration: none;
+    border: 0;
 }
+
+.summary .price ins {
+  text-decoration: none;
+}
+
 
 
 
@@ -245,15 +289,15 @@ input::-webkit-outer-spin-button,
     border-radius: 3px;
     border-width: 1px;
     border-style: solid;
-    border-color: #546478;
-    background: #546478;
+    border-color: #343448;
+    background: #343448;
     color: #eee;
     font-size: 1.4rem;
 }
 
 .minus:hover, .plus:hover {
-    border-color: #545468;
-    background: #545468;
+    border-color: #3d3d4d;
+    background: #3d3d4d;
     color: #eee;
 }
 
@@ -264,7 +308,7 @@ input::-webkit-outer-spin-button,
 .woocommerce div.product form.cart div.quantity input[type=number] {
     text-decoration: none;
     background-color: #fff;
-    border-radius: 0; 
+    border-radius: 0;
     border-width: 0;
     height: 3rem;
     color: #435E55;
@@ -296,13 +340,13 @@ input::-webkit-outer-spin-button,
     .plus, .minus {
         min-width: 30px;
     }
-    
+
     .woocommerce div.product form.cart .button {
         padding: 2px 10px;
-        min-width: 100px;
+        min-width: 160px;
     }
-    
-    
+
+
 }
 
 .woocommerce .cart button.button.alt {
@@ -313,14 +357,19 @@ input::-webkit-outer-spin-button,
 }
 
 
+.woocommerce div.product div.images .woocommerce-product-gallery__trigger {
+  z-index: 0;
+}
+
 
 /* CURRENCY */
-#alg_currency_selector {
-    height: 22px;
+#alg_currency_selector select {
+    height: 32px;
     line-height: 16px;
     font-size: 12px;
     margin-top: 10px;
-   
+    min-width: 120px;
+    margin-bottom: 12px;
 }
 
 
@@ -356,23 +405,62 @@ input::-webkit-outer-spin-button,
     .woocommerce ul.products[class*="columns-"] li.product, .woocommerce-page ul.products[class*="columns-"] li.product {
         width:90%;
         max-width: 300px;
-        margin-left: auto;
-        margin-right: auto;
+        /* margin-left: auto; */
+        /* margin-right: auto; */
     }
-    
+
     .woocommerce-page div.product div.summary {
         width: 80%;
         margin-left: 0;
-        min-height: 300px;
+        min-height: 120px;
     }
-    
+
     input, textarea {
         position: static;
 /*        margin-top: 20px;*/
     }
-    
+
     .woocommerce div.product form.cart div.quantity {
         position: static;
     }
-    
+
+}
+
+
+
+
+/*  Customize tshirt product viewer */
+
+#overview {
+  width: 300px;
+}
+
+#designer_overview_content {
+  line-height: 2;
+}
+
+.woo_designer_quantity {
+  height: 32px;
+  padding: 6px;
+}
+
+#woo_designer_add_to_cart_form .btn {
+  margin: auto 0;
+  background:
+}
+
+#options {
+  z-index: 0;
+}
+
+#designer_overview_content {
+  display: none;
+}
+
+.shop_table dt.variation-BasePrice{
+  display: none;
+}
+
+.shop_table dd.variation-BasePrice{
+  display: none;
 }

@@ -21,9 +21,9 @@ if( get_option( 'show_on_front' ) != 'posts' ):
                                 <p>LED Signs</p>
                             </div>
                         </div>
-                        <!-- Add js onmouseover for cards -->
                         <a href="<?php echo get_term_link( 'signs','product_cat') ?>"  class="stretched-link"></a>
                     </div>
+
                     <div class="col-12 col-md-4 demo-store-box" id="t-shirt">
                         <div class="store-card">
                             <div class="store-card-img">
@@ -35,6 +35,7 @@ if( get_option( 'show_on_front' ) != 'posts' ):
                         </div>
                         <a href="<?php echo get_term_link( 'tees','product_cat') ?>"  class="stretched-link"></a>
                     </div>
+
                     <div class="col-12 col-md-4 demo-store-box" id="car">
                         <div class="store-card">
                             <div class="store-card-img">

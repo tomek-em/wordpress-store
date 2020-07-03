@@ -1,0 +1,98 @@
+/* 3d Product viewer styles */
+
+.waiting_div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: #888;
+  opacity: 0.9;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.d_none {
+  display: none;
+}
+
+.text_center {
+  color: #fff;
+}
+
+
+
+.canvas_cont {
+  width: 50%;
+  float: left;
+  height: 460px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+
+/* panel */
+.text_input {
+  max-width: 200px;
+  height: 46px;
+  margin: 4px 8px;
+}
+
+.btn_panel {
+  width: 100%;
+  min-height: 80px;
+  background: #444455;
+  opacity: 0.9;
+  border-radius: 5px;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 16px;
+  min-width: 100px;
+  background: #D64161;
+  border-radius: 5px;
+  margin: 4px 12px;
+}
+
+.btn:hover {
+  background: #E95676;
+}
+
+.select {
+  min-width: 100px;
+  margin: 4px 12px;
+}
+
+
+@media (max-width: 900px) {
+  .canvas_cont {
+    width: 98%;
+  }
+}
+
+
+
+
+
+
+
+/*  Canvas 2d prod viewer */
+.canvas {
+  border: 1px solid #888;
+}

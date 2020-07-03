@@ -9,23 +9,10 @@ Version: 1.0
 
 
 
-/* My Store --------
----- */
-/* ISSUES:
-need to setup box-sixing and padding, margin for all *{};
-
-CARDS ISSUE stretched-link:after - default has z-index: 1
-*/
-
-/*
-TO DO
-- rozważyć zapisanie @media dla różnych rozmiarów w oddzielnych plikach
-*/
-
 /* Colors:
 #268AFF / #FD9A28
-
 Hunter Green (#435E55FF) and Raspberry (#D64161FF)   -- */
+
 
 * {
     box-sizing: border-box;
@@ -83,9 +70,6 @@ body {
 .d-none {
     display: none;
 }
-
-
-/* Bootstrap */
 
 .stretched-link::after {
     z-index: 0;
@@ -825,7 +809,7 @@ footer {
 footer a {
     color: #eee;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: 1.0rem;
 }
 
 footer a:hover {
@@ -836,7 +820,7 @@ footer a:hover {
 footer p {
     margin-top: 1.4rem;
     margin-bottom: 0;
-    font-size: 0.9rem;
+    font-size: 1.0rem;
 }
 
 footer h2 {

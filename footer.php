@@ -6,7 +6,7 @@
                 <div class="col-lg-5 col-xs-12 about-company">
                     <h2>Ad store</h2>
                     <p class="pr-5">This website is made only for testing purposes. </p>
-                    <p><a href="#"><i class="fab fa-facebook-square mr-1 fa-lg"></i></a></p>
+                    <p><a href="https://facebook.com"><i class="fab fa-facebook-square mr-1 fa-lg"></i></a></p>
                 </div>
                 <div class="col-lg-3 col-xs-12 links">
                     <h3 class="mt-lg-0 mt-sm-3">What do we do:</h3>
@@ -37,6 +37,6 @@
 </div> <!-- /Wrapper  -->
 
     <!--  <script src="https://kit.fontawesome.com/3680f9368b.js"></script>-->
-    
+
 </body>
 </html>
