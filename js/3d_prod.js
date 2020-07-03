@@ -130,11 +130,12 @@ const createButtonsPanel = (canv) => {
 
 	text_input.addEventListener('click', () => {
 		text_input.value = '';
-		clearCanvas( canvas );
+		world.clearDesign();
 	});
 	text_input.addEventListener('keyup', () => {
-		setText( text_input.value, null );
+		updateText( text_input.value, null );
 
+		// Set custom prod text
 		// let custom_prod_text = document.querySelector('.wccpf-field');
 		let custom_prod_text = document.querySelector('.thwepof-input-field');
 		custom_prod_text.value = text_input.value;
@@ -153,7 +154,7 @@ const createButtonsPanel = (canv) => {
 		option.text = colors[i];
 		select_txColor.appendChild(option);
 	}
-	select_txColor.addEventListener('change', () => setText( null, select_txColor.value ) );
+	select_txColor.addEventListener('change', () => world.setText( null, select_txColor.value ) );
 
 	canv.append(panel);
 }

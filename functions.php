@@ -136,108 +136,16 @@ function three_enq() {
     wp_enqueue_script( 'orbit_controls', get_theme_file_uri( '/js/three_js/OrbitControls.js' ), null, null, true );
     wp_enqueue_script( 'gltf_loader', get_theme_file_uri( '/js/three_js/GLTFLoader.js' ), null, null, true );
     wp_enqueue_script( 'svg_loader', get_theme_file_uri( '/js/three_js/SVGLoader.js' ), null, null, true );
-    // wp_enqueue_script( '_obj', get_theme_file_uri( '/js/obj.js' ), array('jquery'), null, true );
+
+    wp_enqueue_script( '_canvas', get_theme_file_uri( '/js/img_canvas.js' ), null, null, true );
     wp_enqueue_script( '_world', get_theme_file_uri( '/js/world.js' ), null, null, true );
-    wp_enqueue_script( '_app', get_theme_file_uri( '/js/app.js' ), null, null, true );
+    wp_enqueue_script( '_three_prod', get_theme_file_uri( '/js/3d_prod.js' ), null, null, true );
 }
 
 function canvas_enq() {
-    wp_enqueue_script( '_canvas', get_theme_file_uri( '/js/canvas.js' ), null, null, true );
+    wp_enqueue_script( '_canvas', get_theme_file_uri( '/js/img_canvas.js' ), null, null, true );
+    wp_enqueue_script( '_two_prod', get_theme_file_uri( '/js/2d_prod.js' ), null, null, true );
 }
-
-
-
-
-//
-// add_action( 'woocommerce_before_add_to_cart_button', 'add_fields_before_add_to_cart' );
-//
-// function add_fields_before_add_to_cart( ) {
-
-	?>
-	<!-- <table>
-		<tr>
-			<td> -->
-				<?php
-        // _e( "Name:", "aoim");
-        ?>
-			<!-- </td>
-			<td>
-				<input type = "text" name = "customer_name" id = "customer_name" placeholder = "Name on Gift Card">
-			</td>
-		</tr>
-		<tr>
-			<td> -->
-				<?php
-        // _e( "Message:", "aoim");
-        ?>
-			<!-- </td>
-			<td>
-				<input type = "text" name = "customer_message" id = "customer_message" placeholder = "Your Message on Gift Card">
-			</td>
-		</tr>
-	</table> -->
-	<?php
-
-// }
-//
-//
-// /**
-//  * Add data to cart item
-//  */
-// add_filter( 'woocommerce_add_cart_item_data', 'add_cart_item_data', 25, 2 );
-//
-// function add_cart_item_data( $cart_item_meta, $product_id ) {
-//
-// 	if ( isset( $_POST ['customer_name'] ) && isset( $_POST ['customer_message'] ) ) {
-// 		$custom_data  = array() ;
-// 		$custom_data [ 'customer_name' ]    = isset( $_POST ['customer_name'] ) ?  sanitize_text_field ( $_POST ['customer_name'] ) : "" ;
-// 		$custom_data [ 'customer_message' ] = isset( $_POST ['customer_message'] ) ? sanitize_text_field ( $_POST ['customer_message'] ): "" ;
-//
-// 		$cart_item_meta ['custom_data']     = $custom_data ;
-// 	}
-//
-// 	return $cart_item_meta;
-// }
-//
-// /**
-//  * Display the custom data on cart and checkout page
-//  */
-// add_filter( 'woocommerce_get_item_data', 'get_item_data' , 25, 2 );
-//
-// function get_item_data ( $other_data, $cart_item ) {
-//
-// 	if ( isset( $cart_item [ 'custom_data' ] ) ) {
-// 		$custom_data  = $cart_item [ 'custom_data' ];
-//
-// 		$other_data[] =   array( 'name' => 'Name',
-// 					 'display'  => $custom_data['customer_name'] );
-// 		$other_data[] =   array( 'name' => 'Message',
-// 					 'display'  => $custom_data['customer_message'] );
-// 	}
-//
-// 	return $other_data;
-// }
-//
-// /**
-//  * Add order item meta
-//  */
-//
-// add_action( 'woocommerce_add_order_item_meta', 'add_order_item_meta' , 10, 2);
-//
-// function add_order_item_meta ( $item_id, $values ) {
-//
-// 	if ( isset( $values [ 'custom_data' ] ) ) {
-//
-// 		$custom_data  = $values [ 'custom_data' ];
-// 		wc_add_order_item_meta( $item_id, 'Name', $custom_data['customer_name'] );
-// 		wc_add_order_item_meta( $item_id, 'Message', $custom_data['customer_message'] );
-// 	}
-// }
-//
-//
-
-
-
 
 
 

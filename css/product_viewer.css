@@ -96,3 +96,10 @@
 .canvas {
   border: 1px solid #888;
 }
+
+
+
+/*  Hide extra product text field */
+.thwepo-extra-options {
+  display: none;
+}
