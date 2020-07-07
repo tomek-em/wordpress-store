@@ -73,7 +73,7 @@
 }
 
 .woocommerce ul.products li.product {
-    background: #fafafa;
+    background: #f4f4f4;
     border-radius: 0;
     min-width: 26%;
     text-align: center;
@@ -87,7 +87,7 @@
 }
 
 .woocommerce ul.products li.product:hover {
-    background: #ebebeb;
+    background: #fff;
 }
 
 
