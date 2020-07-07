@@ -859,6 +859,14 @@ footer h3 {
 
 @media (max-width: 1400px) {
 
+    .container {
+      max-width: 970px;
+    }
+
+    .home .hero-wrapper {
+      max-height: 70vh;
+    }
+
     .wrap {
         padding: 2rem;
     }
