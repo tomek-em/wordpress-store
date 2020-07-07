@@ -1,3 +1,0 @@
-> kaseton reklamowy ADstore z frezowanymi literami led w Blenderze
-
-> JS - dodac akcje dla resize from mobile to lg (menu sie zachowuje dziwnie)- DONE
