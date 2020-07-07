@@ -45,7 +45,7 @@ if( get_option( 'show_on_front' ) != 'posts' ):
                                 <p>Car advertising</p>
                             </div>
                         </div>
-                        <a href="<?php echo get_term_link( 'trailer-3d','product_cat') ?>"  class="stretched-link"></a>
+                        <a href="<?php echo get_term_link( 'car','product_cat') ?>"  class="stretched-link"></a>
                     </div>
                 </div>
             </div>

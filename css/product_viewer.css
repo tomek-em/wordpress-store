@@ -26,7 +26,7 @@
 
 
 .canvas_cont {
-  width: 50%;
+  width: 52%;
   float: left;
   height: 460px;
   position: relative;
@@ -36,11 +36,6 @@
 
 
 /* panel */
-.text_input {
-  max-width: 200px;
-  height: 46px;
-  margin: 4px 8px;
-}
 
 .btn_panel {
   width: 100%;
@@ -52,11 +47,29 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 8px;
+  padding: 4px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
+}
+
+.input_cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto 8px;
+}
+
+.input_cont label {
+  font-size: 17px;
+  margin: auto 6px;
+}
+
+.text_input {
+  width: 180px;
+  height: 36px;
+  margin: 4px 6px;
 }
 
 .btn {
@@ -67,7 +80,7 @@
   min-width: 100px;
   background: #D64161;
   border-radius: 5px;
-  margin: 4px 12px;
+  margin: 4px 6px;
 }
 
 .btn:hover {
@@ -75,14 +88,18 @@
 }
 
 .select {
-  min-width: 100px;
+  min-width: 80px;
   margin: 4px 12px;
+}
+
+#select_txColor {
+  margin-left: 0;
 }
 
 
 @media (max-width: 900px) {
   .canvas_cont {
-    width: 98%;
+    width: 100%;
   }
 }
 

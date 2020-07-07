@@ -157,6 +157,8 @@
 
 
 
+
+
 .summary {
   margin-left: 60px;
   width: 300px;
@@ -182,6 +184,9 @@
 }
 
 @media (max-width: 1400px) {
+
+
+
   .woocommerce-page div.product div.summary {
     float: left;
     min-height: 40px;
@@ -322,7 +327,7 @@ input::-webkit-outer-spin-button,
     padding: 0 30px 0 30px;
     text-align: center;
     height: 3rem;
-    line-height: 3rem;
+    line-height: 1rem;
     text-transform: uppercase;
 }
 

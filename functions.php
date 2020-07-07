@@ -167,6 +167,13 @@ function remove_prod_de() {
     remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
 }
 
+// Change Add to Card button to Read more
+add_filter( 'woocommerce_loop_add_to_cart_link', 'replacing_add_to_cart_button', 10, 2 );
+function replacing_add_to_cart_button( $button, $product  ) {
+    $button_text = __("View product", "woocommerce");
+    $button = '<a class="button" href="' . $product->get_permalink() . '">' . $button_text . '</a>';
+    return $button;
+}
 
 
 add_action( 'woocommerce_after_add_to_cart_quantity', 'ts_quantity_plus_sign' );

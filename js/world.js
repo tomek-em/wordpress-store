@@ -24,11 +24,17 @@ class World {
     this.controls.maxPolarAngle = Math.PI * 0.495;
     this.controls.update();
 
+    // init basic texture canvas
+    this.tex_canv = document.createElement('canvas');
+    this.tex_canv.width = 512;
+    this.tex_canv.height = 512;
+    this.ctx = this.tex_canv.getContext('2d');
+
     this.txColor = 'black';
     this.color = 'white';
+    this.img = '';
+    this.text = '';
     this.frames = 0;
-
-    // this.setTestScene();
   }
 
 
@@ -61,155 +67,12 @@ class World {
 
 
 
-  loadTextures() {
-    var loader = new THREE.TextureLoader();
-
-    var texture = loader.load( './res/tiles/brown.jpg', function ( texture ) {
-        texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-        texture.offset.set( 0, 0 );
-        texture.repeat.set( 0.8, 2.4);
-    } );
-
-    this.kafle2 = new THREE.MeshPhongMaterial( {
-         color: 0xffffff,
-         specular:0x111111,
-         shininess: 10,
-         map: texture,
-      } );
-
-    this.metal = new THREE.MeshPhongMaterial({
-      color: 0xbbbbbb,
-      specular: 0x050505,
-      metalness: 1,
-      roughness: 0.6,
-      shininess: 80
-    });
-
-      // floor panel tex
-      var floor_panel_tex = loader.load( './res/tex/floor.png', function ( texture ) {
-          floor_panel_tex.wrapS = texture.wrapT = THREE.RepeatWrapping;
-          floor_panel_tex.offset.set( 0, 0 );
-          floor_panel_tex.repeat.set( 0.8, 2.4);
-      } );
-
-      this.floor_panel_mat = new THREE.MeshPhongMaterial( {
-           color: 0xffffff,
-           specular:0x111111,
-           shininess: 10,
-           map: floor_panel_tex,
-        } );
-  }
 
 
+  // load image from file
+  loadImg( path ) {
+    const img = new Image();
 
-  // Load side svg texture material
-  loadSvgTexture( path ) {
-    let mat = new THREE.MeshBasicMaterial( {color: '#aff'} );
-    // let trailer_side = this.product_model.children[2].children[2];
-    let elements = [];
-    elements[0] = this.product_model.children[0].children[11];
-    elements[1] = this.product_model.children[0].children[12];
-    elements[2] = this.product_model.children[0].children[13];
-
-    // let height = geometry.boundingBox,
-
-    const loader = new THREE.TextureLoader()
-    loader.load( path ,
-    function( data ) {
-      // on texture loaded
-      let tex = data;
-
-      let tex_h = tex.image.height;
-      console.log( tex_h );
-
-      tex.flipY = false;
-      tex.wrapS = THREE.ClampToEdgeWrapping;
-      tex.wrapT = THREE.ClampToEdgeWrapping;
-      // tex.wrapT = THREE.RepeatWrapping;
-
-      let repeatX = 4;
-      let repeatY = 4;
-      tex.repeat.set(repeatX, repeatY);
-      tex.offset.x = -1.5;
-      tex.offset.y = -0.8;
-
-      let tex_mat = new THREE.MeshLambertMaterial({
-        map: tex,
-        combine: THREE.MixOperation,
-        blending: 1,
-        transparent: true,
-        color: 0x00FF00
-      });
-
-      // console.log( elements[0].material );
-    },
-    function ( err ) {
-      console.log( err );
-    });
-  }
-
-
-
-
-
-  // change elements
-  // setCustomElements( path, text, largeSize ) {
-  //   let elements = [];
-  //   elements[0] = this.product_model.children[0].children[11];
-  //   elements[1] = this.product_model.children[0].children[12];
-  //   elements[2] = this.product_model.children[0].children[13];
-  //   let large_size;
-  //
-  //   // open image if set
-  //   const img = new Image();
-  //   img.src = path;
-  //
-  //   img.onload = function() {
-  //     const canvas = document.createElement('canvas');
-  //     canvas.width = 400;
-  //     canvas.height = 400;
-  //
-  //     const texture = new THREE.Texture(canvas);
-  //
-  //     let ctx = canvas.getContext('2d');
-  //     ctx.fillStyle = '#fff';
-  //     ctx.fillRect(0, 0, canvas.width, canvas.height);
-  //     if ( largeSize ) {
-  //       ctx.drawImage(img, 150, 50, 200, 200);
-  //     } else {
-  //       ctx.drawImage(img, 160, 100, 80, 80);
-  //     }
-  //
-  //     // create text if set
-  //     if( text ) {
-  //       console.log( text );
-  //     }
-  //
-  //     texture.flipY = false;
-  //     texture.needsUpdate = true;
-  //
-  //     let texture2 = new THREE.Texture(canvas);
-  //     texture2.wrapS = THREE.RepeatWrapping;
-  //     texture2.repeat.x = - 1;
-  //     texture2.flipY = false;
-  //     texture2.needsUpdate = true;
-  //
-  //
-  //     let mat_left = new THREE.MeshBasicMaterial({ map: texture });
-  //     let mat_right = new THREE.MeshBasicMaterial({ map: texture2 });
-  //
-  //     elements[0].material = mat_left;
-  //     elements[1].material = mat_right;
-  //     elements[2].material = mat_left;
-  //     // elements[0].material.side = THREE.DoubleSide;
-  //   }
-  // }
-
-
-
-
-
-  loadImg( path, img ) {
     return new Promise((resolve, reject) => {
       if(path) {
         this.img_path = path;
@@ -218,119 +81,123 @@ class World {
           resolve( img );
         }
       } else {
+        console.error('can not load bg file');
         reject();
       }
     });
   }
 
 
-  // change elements
-  async setCustomElements ( path, largeSize ) {
 
-    let elements = [];
-    elements[0] = this.product_model.children[0].children[11];
-    elements[1] = this.product_model.children[0].children[12];
-    elements[2] = this.product_model.children[0].children[13];
+    // Change custom image
+    async changeCustomImage( path, bg_color, size ){
+      this.clearCanvasObj();
 
-    let materials;
-
-    const img = new Image();
-
-    // open image if set
-    if( path ) await this.loadImg(path, img);
-
-    const canvas = document.createElement('canvas');
-    canvas.width = 400;
-    canvas.height = 400;
-
-    const texture = new THREE.Texture(canvas);
-
-    let ctx = canvas.getContext('2d');
-    ctx.fillStyle = this.color;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // place img if set
-    if ( largeSize ) {
-      ctx.drawImage(img, 120, 50, 160, 160);
-    } else {
-      ctx.drawImage(img, 160, 100, 80, 80);
+      // load element
+      if ( path ) {
+        this.img = await this.loadImg( path );
+        this.setCustomImage( size );
+      }
     }
 
-    // fill with color
-    let line = null;
-    if ( line != null ) {
-      ctx.fillStyle = '#ddd';
-      ctx.fillRect(0, 0, canvas.width/1, canvas.height/1);
+
+    // Set custom image
+    setCustomImage( size ){
+      let x = this.tex_canv.width /2;
+      let a;
+      size == 'l' ? a = 180 : a = 120;
+
+      // set canvas context color
+      this.ctx.fillStyle = this.color;
+      this.ctx.fillRect(0, 0, this.tex_canv.width, this.tex_canv.height);
+
+      this.ctx.drawImage(this.img, x, 220-a, a, a);
+
+      this.updateObjMaterials();
     }
 
-    texture.flipY = false;
-    texture.needsUpdate = true;
-
-    let texture2 = new THREE.Texture(canvas);
-    texture2.wrapS = THREE.RepeatWrapping;
-    texture2.repeat.x = -1;
-    texture2.offset.y = -0.04;
-    texture2.flipY = false;
-    texture2.needsUpdate = true;
-
-    let texture3 = new THREE.Texture(canvas);
-    texture3.offset.x = -0.02;
-    texture3.offset.y = -0.32;
-    texture3.flipY = false;
-    texture3.needsUpdate = true;
-
-    this.tex1 = texture;
-    this.ctx = ctx;
-
-    elements[0].material = new THREE.MeshBasicMaterial({ map: texture });
-    elements[1].material = new THREE.MeshBasicMaterial({ map: texture2 });
-    elements[2].material = new THREE.MeshBasicMaterial({ map: texture3 });
-  }
 
 
-  // Set text
-  setText( text, color ) {
-    let path = null;
-    if ( text != null ) this.text = text;
-    else if ( text == null ) path = this.img_path;
+    // Set custom text
+    setCustomText( text, color, size ) {
+      let x = this.tex_canv.width /2;
 
-    if ( color != null ) this.txColor = color;
-    if ( path == null ) this.img_path = null;
+      if( color ) this.txColor = color;
+      if( text && text.length <= 12 ) this.text = text;
 
-    // create text if set
-    this.setCustomElements( path, true );
+      this.ctx.fillStyle = this.color;
+      this.ctx.fillRect(0, 0, this.tex_canv.width, this.tex_canv.height);
 
-    if( this.text != null ) {
-      // FONT from google
-      let font_size = '36pt';
-      if (this.text.length < 7) font_size = '52pt';
+      let font_size = '32pt';
+      if (this.text.length < 7) font_size = '64pt';
 
       this.ctx.font = `${font_size} Righteous`;
       this.ctx.textAlign = "center";
       this.ctx.textBaseline = "middle";
       this.ctx.fillStyle = this.txColor;
-      this.ctx.fillText( this.text, 200 , 120 );
+      this.ctx.fillText( this.text, 310 , 150 );
 
       this.ctx.needsUpdate = true;
-      // this.product_model.children[0].children[11].material = new THREE.MeshBasicMaterial({ map: this.tex1 });
+
+      if( this.text ) this.updateObjMaterials();
     }
-    console.log( this.text, ' ', this.txColor );
-  }
 
 
-  // change car color
-  changeColor( color ) {
-    this.color = color;
-    let color_mat = new THREE.MeshBasicMaterial({ color: color });
+    // update obj mat
+    updateObjMaterials() {
+      const texture = new THREE.Texture( this.tex_canv );
 
-    this.product_model.children[0].children[0].material = color_mat;
-    this.product_model.children[0].children[0].material.side = THREE.DoubleSide;
-    this.product_model.children[0].children[11].material = color_mat;
-    this.product_model.children[0].children[12].material = color_mat;
-    this.product_model.children[0].children[13].material = color_mat;
+      texture.flipY = false;
+      texture.needsUpdate = true;
 
-    this.setText(null, this.txColor);
-  }
+        let texture2 = new THREE.Texture( this.tex_canv );
+        texture2.wrapS = THREE.RepeatWrapping;
+        texture2.repeat.x = -1;
+        texture2.offset.x = 0.2;
+        texture2.offset.y = -0.04;
+        texture2.flipY = false;
+        texture2.needsUpdate = true;
+
+        let texture3 = new THREE.Texture( this.tex_canv );
+        texture3.offset.x = 0.08;
+        texture3.offset.y = -0.32;
+        texture3.flipY = false;
+        texture3.needsUpdate = true;
+
+      this.product_model.children[0].children[11].material = new THREE.MeshBasicMaterial({ map: texture });
+      this.product_model.children[0].children[12].material = new THREE.MeshBasicMaterial({ map: texture2 });
+      this.product_model.children[0].children[13].material = new THREE.MeshBasicMaterial({ map: texture3 });
+    }
+
+
+    // change car color
+    setCarColor( color ) {
+      if( color ) this.color = color;
+      let color_mat = new THREE.MeshBasicMaterial({ color: this.color });
+
+      this.product_model.children[0].children[0].material = color_mat;
+      this.product_model.children[0].children[0].material.side = THREE.DoubleSide;
+      this.product_model.children[0].children[11].material = color_mat;
+      this.product_model.children[0].children[12].material = color_mat;
+      this.product_model.children[0].children[13].material = color_mat;
+
+      if(this.img) this.setCustomImage();
+      if(this.text) this.setCustomText();
+    }
+
+
+    // Clear elements - text, img
+    clearCanvasObj() {
+      this.img = '';
+      this.text = '';
+
+      this.ctx.fillStyle = this.color;
+      this.ctx.fillRect(0, 0, this.tex_canv.width, this.tex_canv.height);
+      this.updateObjMaterials();
+    }
+
+
+
 
 
   // Load GLTF Obj
@@ -392,36 +259,6 @@ class World {
   }
 
 
-
-  // remove objects
-  rmv() {
-      cube[0].geometry.dispose();
-      cube[0].material.dispose();
-      scene.remove( cube[0] );
-      cube = [];
-      tex1.dispose();
-      if ( mat ) mat.dispose();
-  }
-
-  clearDesign() {
-    let elements = [];
-    elements[0] = this.product_model.children[0].children[11];
-    elements[1] = this.product_model.children[0].children[12];
-    elements[2] = this.product_model.children[0].children[13];
-    let color_mat = new THREE.MeshBasicMaterial({ color: this.color });
-
-    elements[0].material = color_mat;
-    elements[1].material = color_mat;
-    elements[2].material = color_mat;
-
-    this.ctx = null;
-    this.tex1 = null;
-
-    this.text = '';
-    this.img_path = null;
-
-    console.log( 'clear design' );
-  }
 
 
   rotateMesh(mesh) {

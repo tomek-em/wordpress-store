@@ -21,8 +21,11 @@ const readFile = (e) => {
 	const reader = new FileReader();
 	reader.onload = function(e) {
 		let content = e.target.result;
-		// document.getElementById('canvas_cont').innerHTML = content;
-		world.setCustomElements( content, true );
+
+		let custom_prod_text = document.querySelector('.thwepof-input-field');
+		custom_prod_text.value = 'file';
+
+		world.changeCustomImage( content, true );
 	}
 	// reader.readAsText(file);
 	reader.readAsDataURL(file);
@@ -39,11 +42,7 @@ const setCustomElements = () => {
 	let nr = 2;
 	let objName = `globe-${nr}.svg`;
 	let path = `${wpUrl.theme_url}/res/${objName}`;
-	world.setCustomElements( path );
-}
-
-const updateText = ( text ) => {
-	world.setText( text );
+	world.changeCustomImage( path );
 }
 
 
@@ -80,20 +79,23 @@ const createButtonsPanel = (canv) => {
 	panel.id = 'btn_panel';
 	panel.classList.add('btn_panel');
 
-	// create add exemple btn
-	const add_btn = document.createElement('a');
-	add_btn.id = 'add_btn';
-	add_btn.classList.add('btn');
-	add_btn.innerHTML = 'Exemple';
-	panel.append(add_btn);
-	add_btn.addEventListener('click', () => setCustomElements() );
-
 
 	// create car color select
+	const select_color_cont = document.createElement('div');
+	select_color_cont.classList.add('input_cont');
+	const select_color_label = document.createElement('label');
+	select_color_label.htmlFor = 'select_color';
+	select_color_label.innerHTML = 'Car color:';
+
 	const select_color = document.createElement('select');
 	select_color.id = 'select_color';
 	select_color.classList.add('select');
-	panel.append( select_color );
+
+	select_color_cont.append( select_color_label );
+	select_color_cont.append( select_color );
+	panel.append( select_color_cont );
+
+
 	//create and append options
 	for (let i = 0; i < colors.length; i++) {
 		let option = document.createElement('option');
@@ -103,37 +105,25 @@ const createButtonsPanel = (canv) => {
 		select_color.appendChild(option);
 	}
 	select_color.value = 'white';
-	select_color.addEventListener('change', () => world.changeColor( select_color.value ) );
+	select_color.addEventListener('change', () => world.setCarColor( select_color.value ) );
 
-	// create file input not displayed
-	const load_file = document.createElement('input');
-	load_file.id = 'file_input';
-	load_file.type = 'file';
-	load_file.addEventListener( 'change', readFile, false );
-	// load btn handle file input
-	const load_btn = document.createElement('a');
-	load_btn.id = 'load_btn';
-	load_btn.classList.add('btn');
-	load_btn.innerHTML = 'Load svg';
-	panel.append(load_btn);
-	load_btn.addEventListener('click', () => {
-		load_file.click();
-	});
 
 	// text input
+	const text_cont = document.createElement('div');
+	text_cont.classList.add('input_cont');
+
 	const text_input = document.createElement('input');
 	text_input.type = 'text';
 	text_input.id = 'text_input';
 	text_input.classList.add('text_input');
 	text_input.placeholder = 'your text';
-	panel.append(text_input);
 
 	text_input.addEventListener('click', () => {
 		text_input.value = '';
-		world.clearDesign();
+		world.clearCanvasObj();
 	});
 	text_input.addEventListener('keyup', () => {
-		updateText( text_input.value, null );
+		world.setCustomText( text_input.value, null, 'm' );
 
 		// Set custom prod text
 		// let custom_prod_text = document.querySelector('.wccpf-field');
@@ -154,7 +144,41 @@ const createButtonsPanel = (canv) => {
 		option.text = colors[i];
 		select_txColor.appendChild(option);
 	}
-	select_txColor.addEventListener('change', () => world.setText( null, select_txColor.value ) );
+	select_txColor.addEventListener('change', () => world.setCustomText( null, select_txColor.value ) );
+
+	text_cont.append(text_input);
+	text_cont.append(select_txColor);
+	panel.append(text_cont);
+
+
+	// create file input
+	const buttons_cont = document.createElement('div');
+	buttons_cont.classList.add('input_cont');
+
+	const load_file = document.createElement('input');
+	load_file.id = 'file_input';
+	load_file.type = 'file';
+	load_file.addEventListener( 'change', readFile, false );
+	// load btn handle file input
+	const load_btn = document.createElement('a');
+	load_btn.id = 'load_btn';
+	load_btn.classList.add('btn');
+	load_btn.innerHTML = 'Load svg';
+	panel.append(load_btn);
+	load_btn.addEventListener('click', () => {
+		load_file.click();
+	});
+
+	// create add exemple btn
+	const add_btn = document.createElement('a');
+	add_btn.id = 'add_btn';
+	add_btn.classList.add('btn');
+	add_btn.innerHTML = 'Exemple';
+	add_btn.addEventListener('click', () => setCustomElements() );
+
+	buttons_cont.append(load_btn);
+	buttons_cont.append(add_btn);
+	panel.append(buttons_cont);
 
 	canv.append(panel);
 }
