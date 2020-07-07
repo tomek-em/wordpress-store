@@ -53,7 +53,6 @@ if( get_option( 'show_on_front' ) != 'posts' ):
         </section>
 
 
--->
 </div>
 </div><!-- #primary -->
 

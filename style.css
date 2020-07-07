@@ -515,7 +515,8 @@ section {
 }
 
 #car .store-card-img {
-    background: linear-gradient(rgba(253,154,40,0), rgba(253,154,40,0)), url("res/car_1.jpg") center no-repeat;
+     /* credit: Photo by Jonathan Bean on Unsplash */
+    background: linear-gradient(rgba(253,154,40,0), rgba(253,154,40,0)), url("res/car.jpg") center no-repeat;
     background-size: cover;
 }
 
@@ -524,7 +525,7 @@ section {
 }
 
 #car-img {
-    background: linear-gradient(rgba(253,154,40,0), rgba(253,154,40,0)), url("res/car_1grey.jpg") center no-repeat;
+    background: linear-gradient(rgba(253,154,40,0), rgba(253,154,40,0)), url("res/car_grey.jpg") center no-repeat;
     background-size: cover;
     height: 100%;
     -webkit-transition: all .8s ease-in-out;
