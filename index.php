@@ -1,9 +1,11 @@
 <?php
-get_header();
+/* Post and Product File
+*/
 
+  get_header();
 ?>
 
-    <div class="wrap">
+  <div class="wrap">
     <?php
         if ( have_posts() ) :
             while ( have_posts() ) : the_post(); ?>
@@ -11,29 +13,24 @@ get_header();
             <?php
             // remove prod picture if 3d or tees
             if (is_product() && has_term('3d', 'product_cat')) {
-                three_enq();
+                enq_three_prod_scripts();
                 remove_prod_de();
                 the_content();
 
             } elseif (is_product() && has_term('tees', 'product_cat')) {
-                canvas_enq();
+                enq_canvas_prod_scripts();
                 remove_prod_de();
                 the_content();
             }
              else {
                 the_content();
             }
-
-            ?>
-
-            <?php endwhile;
-
+            endwhile;
         else :
             echo '<p>There are no posts!</p>';
         endif;
     ?>
     </div> <!-- wrap -->
-
 
 
 <?php get_footer(); ?>

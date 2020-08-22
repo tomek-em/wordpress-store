@@ -34,14 +34,14 @@ const readFile = (e) => {
 const loadSvgTex = () => {
 	let nr = 2;
 	let objName = `globe-${nr}.svg`;
-	let path = `${wpUrl.theme_url}/res/${objName}`;
+	let path = `${glbWp.themeUrl}/res/${objName}`;
 	world.loadSvgTexture( path );
 }
 
 const setCustomElements = () => {
 	let nr = 2;
 	let objName = `globe-${nr}.svg`;
-	let path = `${wpUrl.theme_url}/res/${objName}`;
+	let path = `${glbWp.themeUrl}/res/${objName}`;
 	world.changeCustomImage( path );
 }
 
@@ -192,7 +192,7 @@ const setCanvas = () => {
   canvas_cont.id = 'canvas_cont';
   canvas_cont.classList.add('canvas_cont');
 	// get product page div and prep canvas cont
-  const contId = `product-${woocomObj.id}`;
+  const contId = `product-${glbProduct.id}`;
 	console.log(contId);
   const product_cont = document.getElementById(contId);
   product_cont.prepend(canvas_cont);
@@ -225,8 +225,8 @@ const init = async () => {
 
 	// load product model
 	try {
-		let objName = `${woocomObj.name}5.glb`;
-		let path = `${wpUrl.theme_url}/res/3d/${objName}`;
+		let objName = `${glbProduct.name}5.glb`;
+		let path = `${glbWp.themeUrl}/res/3d/${objName}`;
 		console.log( path );
 		if(world.scene.children.length <= 3) await world.loadGLTF( path );
 

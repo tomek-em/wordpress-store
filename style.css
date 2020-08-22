@@ -320,7 +320,7 @@ body:not(.default_page):not(.home) #main-header {
     background: linear-gradient(to right, rgba(120, 120, 120, 0.4), rgba(80, 80, 80, 0.2)), url("res/dark-1836961.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 200px 30px;
+    padding: 165px 30px;
     background-position: center center;
 /*    z-index: 0;*/
 }

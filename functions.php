@@ -1,233 +1,131 @@
 <?php
 
-  // Register menu
+  // REGISTER MENUS
   function register_my_menus() {
     register_nav_menus(
       array(
-        'header-menu' => __( 'Header Menu' )
-       )
-     );
-   }
-   add_action( 'init', 'register_my_menus' );
+        'header-menu' => __( 'Header Menu' ),
+        'footer-menu' => __( 'Footer Menu' )
+      )
+    );
+  }
+  add_action( 'init', 'register_my_menus' );
 
 
+
+  function enqueue_basic_scripts() {
+    // Enqueue Bootstrap
+    wp_enqueue_style( 'store-bootstrap-css ', get_template_directory_uri() . '/css/bootstrap.css' );
+    //Enqueue Animate CSS
+    wp_enqueue_style( 'store-animate-css ', get_template_directory_uri() . '/css/animate.min.css' );
+    // Enqueue Fonts
+    wp_enqueue_style( 'store-google-fonts', 'https://fonts.googleapis.com/css?family=Play:400,700|Poppins:400,600|Righteous&display=swap');
+    // custom Woocommerce styles
+    wp_enqueue_style( ' store-add-woocommerce-css ', get_template_directory_uri() . '/css/custom_wc.css');
+    // Custom styles
+    wp_enqueue_style( ' store-add-main-css ', get_template_directory_uri() . '/style.css', array(), '2.0' );
+    wp_enqueue_style( ' store-product-css ', get_template_directory_uri() . '/css/product_viewer.css', array(), '2.0' );
+
+    // Font-awesome
+    wp_enqueue_script( 'store-fontawesome', get_template_directory_uri() . '/js/lib/all.js', array(), false, true);
     //Enqueue JS
-    function load_js() {
-        wp_enqueue_script( 'store', get_template_directory_uri() . '/js/store.js', array ( 'jquery' ), 1.1, false);
-
-        // Create Javascript variables - wp template urls
-        wp_localize_script('store', 'wpUrl', array( 'siteurl' => get_option('siteurl'), 'theme_url' => get_template_directory_uri()));
-
-        if ( have_posts() ) {
-            while ( have_posts() ) {
-                the_post();
-                if (is_product() && ( has_term('3d', 'product_cat') || has_term('tees', 'product_cat') )) {
-                    global $product;
-                    $id = $product->get_id();
-                    $n = $product->get_short_description();
-
-                    if (has_term('tees', 'product_cat')) {
-                        $category = 'tees';
-                    }
-
-                    $prod = array(
-                        'id' => $id,
-                        'name' => $n,
-                        'category' => $category
-                    );
-
-                    wp_localize_script( 'store', 'woocomObj', $prod );
-
-                }
-            }
-        }
-    }
-
-    add_action('wp_enqueue_scripts', 'load_js');
+    wp_enqueue_script( 'store-js', get_template_directory_uri() . '/js/store.js', array( 'jquery' ), false, true);
+  }
+  add_action( 'wp_enqueue_scripts', 'enqueue_basic_scripts' );
 
 
 
+  // Product Scripts
+  // Change to plugin
+  function enq_three_prod_scripts() {
+      wp_enqueue_script( 'three_js', get_theme_file_uri( '/js/three_js/three.min.js' ), null, null, true );
+      wp_enqueue_script( 'orbit_controls', get_theme_file_uri( '/js/three_js/OrbitControls.js' ), null, null, true );
+      wp_enqueue_script( 'gltf_loader', get_theme_file_uri( '/js/three_js/GLTFLoader.js' ), null, null, true );
+      wp_enqueue_script( 'svg_loader', get_theme_file_uri( '/js/three_js/SVGLoader.js' ), null, null, true );
 
-
-// Font-awesome
-function enqueue_fontawesome() {
-    wp_enqueue_script( 'fontawesome', get_template_directory_uri() . '/js/all.js', array ( 'jquery' ), 1.1, true);
-}
-add_action( 'wp_enqueue_scripts', 'enqueue_fontawesome' );
-
-
-// Enqueue Bootstrap
-function add_bootstrap_css() {
-    wp_enqueue_style( ' add_bootstrap_css ', get_template_directory_uri() . '/css/bootstrap.css' );
-}
-add_action( 'wp_enqueue_scripts', 'add_bootstrap_css' );
-
-
-//Enqueue Animate CSS
-function add_animate_css() {
-    wp_enqueue_style( ' add_animate_css ', get_template_directory_uri() . '/css/animate.min.css' );
-}
-
-//Enqueue Fonts
-function wpb_add_google_fonts() {
-    wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Play:400,700|Poppins:400,600|Righteous&display=swap', false );
-}
-add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
-
-
-
-
-// Menu Login - out
-  add_filter( 'wp_nav_menu_objects', 'mytheme_menufilter', 10, 2 );
-  function mytheme_menufilter($items, $args) {
-
-      // want our MAINMENU to have MAX of 7 items
-      if ( $args->theme_location == 'mainmenu' ) {
-          $toplinks = 0;
-          foreach ( $items as $k => $v ) {
-              if ( $v->menu_item_parent == 0 ) {
-                  // count how many top-level links we have so far...
-                  $toplinks++;
-              }
-              // if we've passed our max # ...
-              if ( $toplinks > 7 ) {
-                  unset($items[$k]);
-              }
-          }
-      }
-      return $items;
+      wp_enqueue_script( '_canvas', get_theme_file_uri( '/js/img_canvas.js' ), null, null, true );
+      wp_enqueue_script( '_world', get_theme_file_uri( '/js/world.js' ), null, null, true );
+      wp_enqueue_script( '_three_prod', get_theme_file_uri( '/js/3d_prod.js' ), null, null, true );
   }
 
+  function enq_canvas_prod_scripts() {
+      wp_enqueue_script( '_canvas', get_theme_file_uri( '/js/img_canvas.js' ), null, null, true );
+      wp_enqueue_script( '_two_prod', get_theme_file_uri( '/js/2d_prod.js' ), null, null, true );
+  }
+
+  // Product quantity counter - Run on single prod page
+  function ts_quantity_plus_minus() {
+     if ( ! is_product() ) return;
+     wp_enqueue_script( 'store-prod-woo-custom', get_template_directory_uri() .'/js/prod_woo_custom.js');
+  }
+  add_action( 'wp_footer', 'ts_quantity_plus_minus' );
 
 
 
+  // Hook Js variables in the header
+  function hook_js_variables() {
 
-// Woocommerce login / logout
-add_filter('wp_nav_menu_items', 'add_login_logout_link', 10, 2);
-function add_login_logout_link($items, $args) {
-    $item = '';
-      if( is_user_logged_in() ) {
-        $item = '<a href="'. wp_logout_url( get_permalink( wc_get_page_id( 'myaccount' ) ) ) .'">Log Out</a>';
-      }
-      else{
-        $item = '<a href="' . get_permalink( wc_get_page_id( 'myaccount' ) ) . '">Log In</a>';
-      }
-    $items .= '<li class="menu-item">'. $item .'</li>';
-    return $items;
-}
+    $wpVar = array('themeUrl' => get_template_directory_uri());
 
-//Reload woocommerce styles
-function add_customwc_css() {
-    wp_enqueue_style( ' add_woocommerce_css ', get_template_directory_uri() . '/css/custom_wc.css');
-}
+    if ( have_posts() ) {
+        while ( have_posts() ) {
+            the_post();
+            if (is_product() && ( has_term('3d', 'product_cat') || has_term('tees', 'product_cat') )) {
+                global $product;
+                $prodId = $product->get_id();
+                $prodDes = $product->get_short_description();
 
-// Main CSS Stylesheet
-function add_main_css() {
-    wp_enqueue_style( ' add_main_css ', get_template_directory_uri() . '/style.css', array(), '2.0' );
-    wp_enqueue_style( ' product_css ', get_template_directory_uri() . '/css/product_viewer.css', array(), '2.0' );
-}
-add_action( 'wp_enqueue_scripts', 'add_customwc_css');
-add_action( 'wp_enqueue_scripts', 'add_main_css');
-
-
-// Three JS
-function three_enq() {
-    wp_enqueue_script( 'three_js', get_theme_file_uri( '/js/three_js/three.min.js' ), null, null, true );
-    wp_enqueue_script( 'orbit_controls', get_theme_file_uri( '/js/three_js/OrbitControls.js' ), null, null, true );
-    wp_enqueue_script( 'gltf_loader', get_theme_file_uri( '/js/three_js/GLTFLoader.js' ), null, null, true );
-    wp_enqueue_script( 'svg_loader', get_theme_file_uri( '/js/three_js/SVGLoader.js' ), null, null, true );
-
-    wp_enqueue_script( '_canvas', get_theme_file_uri( '/js/img_canvas.js' ), null, null, true );
-    wp_enqueue_script( '_world', get_theme_file_uri( '/js/world.js' ), null, null, true );
-    wp_enqueue_script( '_three_prod', get_theme_file_uri( '/js/3d_prod.js' ), null, null, true );
-}
-
-function canvas_enq() {
-    wp_enqueue_script( '_canvas', get_theme_file_uri( '/js/img_canvas.js' ), null, null, true );
-    wp_enqueue_script( '_two_prod', get_theme_file_uri( '/js/2d_prod.js' ), null, null, true );
-}
-
-
-
-
-
-
-// Remove product information filter
-//add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
-function woo_remove_product_tabs( $tabs ) {
-    //unset( $tabs['description'] );      	// Remove the description tab
-    unset( $tabs['reviews'] ); 			// Remove the reviews tab
-    unset( $tabs['additional_information'] );  	// Remove the additional information tab
-    return $tabs;
-}
-
-// Remove product additional information and image
-function remove_prod_de() {
-    remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
-    remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
-}
-
-// Change Add to Card button to Read more
-add_filter( 'woocommerce_loop_add_to_cart_link', 'replacing_add_to_cart_button', 10, 2 );
-function replacing_add_to_cart_button( $button, $product  ) {
-    $button_text = __("View product", "woocommerce");
-    $button = '<a class="button" href="' . $product->get_permalink() . '">' . $button_text . '</a>';
-    return $button;
-}
-
-
-add_action( 'woocommerce_after_add_to_cart_quantity', 'ts_quantity_plus_sign' );
-function ts_quantity_plus_sign() {
-   echo '<button type="button" class="plus" >+</button>';
-}
-
-
-add_action( 'woocommerce_before_add_to_cart_quantity', 'ts_quantity_minus_sign' );
-function ts_quantity_minus_sign() {
-   echo '<button type="button" class="minus" >-</button>';
-}
-
-
-
-add_action( 'wp_footer', 'ts_quantity_plus_minus' );
-function ts_quantity_plus_minus() {
-   // Run this on the single product page
-   if ( ! is_product() ) return;
-   ?>
-
-   <script type="text/javascript">
-      jQuery(document).ready(function($) {
-
-          $('form.cart').on( 'click', 'button.plus, button.minus', function() {
-              // Get current quantity values
-              var qty = $( this ).closest( 'form.cart' ).find( '.qty' );
-              var val   = parseFloat(qty.val());
-              var max = parseFloat(qty.attr( 'max' ));
-              var min = parseFloat(qty.attr( 'min' ));
-              var step = parseFloat(qty.attr( 'step' ));
-
-              // Change the value if plus or minus
-              if ( $( this ).is( '.plus' ) ) {
-                 if ( max && ( max <= val ) ) {
-                    qty.val( max );
-                 } else {
-                 qty.val( val + step );
+                if (has_term('tees', 'product_cat')) {
+                    $prodCategory = 'tees';
                 }
               }
-              // is minus
-              else {
-                 if ( min && ( min >= val ) ) {
-                    qty.val( min );
-                 } else if ( val > 1 ) {
-                    qty.val( val - step );
-                 }
-              }
-         });
+            }
+            $prod = array(
+                'id' => $prodId,
+                'name' => $prodDes,
+                'category' => $prodCategory
+            );
+          }
 
-      });
-   </script>
-   <?php
-}
+    ?>
+      <script type="text/javascript">
+        let glbWp = <?php echo json_encode($wpVar, JSON_UNESCAPED_SLASHES); ?>;
+        let glbProduct = <?php echo json_encode($prod); ?>;
+      </script> <?php
+  }
+  add_action ( 'wp_head', 'hook_js_variables' );
+  // https://wordpress.stackexchange.com/questions/119573/is-it-possible-to-use-wp-localize-script-to-create-global-js-variables-without-a
 
+
+
+
+ /* WOOCOMMERCE FILTERS */
+
+  // Remove product additional information and image
+  function remove_prod_de() {
+      remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+      remove_action( 'woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20 );
+  }
+
+  function ts_quantity_plus_sign() {
+     echo '<button type="button" class="plus" >+</button>';
+  }
+  add_action( 'woocommerce_after_add_to_cart_quantity', 'ts_quantity_plus_sign' );
+
+  function ts_quantity_minus_sign() {
+     echo '<button type="button" class="minus" >-</button>';
+  }
+  add_action( 'woocommerce_before_add_to_cart_quantity', 'ts_quantity_minus_sign' );
+
+
+
+  // Remove product information filter - NOT USED
+  function woo_remove_product_tabs( $tabs ) {
+      //unset( $tabs['description'] );      	// Remove the description tab
+      unset( $tabs['reviews'] ); 			// Remove the reviews tab
+      unset( $tabs['additional_information'] );  	// Remove the additional information tab
+      return $tabs;
+  }
+  //add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
 
 ?>

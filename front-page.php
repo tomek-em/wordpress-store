@@ -1,13 +1,13 @@
 <?php
-
+/* Front Page - when Static page selected insead of posts in Homepage settings
+*/
 
 get_header();
 
 if( get_option( 'show_on_front' ) != 'posts' ):
 ?>
     <div id="primary" >
-
-    <div class="custom-homepage-container">
+      <div class="custom-homepage-container">
 
         <section class="store-banner">
             <div class="container">
@@ -49,11 +49,9 @@ if( get_option( 'show_on_front' ) != 'posts' ):
                     </div>
                 </div>
             </div>
-
         </section>
 
-
-</div>
+  </div>
 </div><!-- #primary -->
 
 

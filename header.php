@@ -9,8 +9,6 @@
         <?php is_front_page() ? bloginfo('description') : wp_title(); ?>
     </title>
 
-
-
     <?php wp_head(); ?>
 </head>
 
@@ -19,9 +17,11 @@
     <!-- Header -->
         <header class="site-header" id="main-header">
             <nav class="my-navbar">
+
+              <!-- TOP NAVBAR TOP -->
                 <div class="site-navbar-top">
                     <div class="container">
-                        <div class="row align-items-center">
+                        <div class="row">
                             <div class="col-6 col-lg-6">
                                 <div class="site-logo">
                                     <h1><a href="<?php echo home_url(); ?>" class="site-logo ">AdStore</a></h1>
@@ -33,8 +33,7 @@
                                         <ul class='cont-flex top-nav-ul '>
                                             <li><a href="<?php echo home_url(); ?>/index.php/my-account"><i class="fas fa-user"></i></a></li>
                                             <li>
-                                                <a href="<?php echo home_url(); ?>/index.php/cart" class="site-cart"><i class="fas fa-cart-arrow-down"></i>
-                                                </a>
+                                                <a href="<?php echo home_url(); ?>/index.php/cart" class="site-cart"><i class="fas fa-cart-arrow-down"></i></a>
                                             </li>
                                         </ul>
                                     </div>
@@ -48,19 +47,17 @@
                     </div>
                 </div>
 
+                <!-- TOP NAVBAR MENU -->
                 <div class="cont">
-                    <?php
-                    wp_nav_menu( array(
-                                    'theme_location'  => 'header-menu',
-                                    'menu'            => '',
-                                    'container'       => false
-                                ) );
-                    ?>
+                <?php
+                wp_nav_menu( array(
+                                'theme_location'  => 'header-menu'
+                            ) );
+                ?>
                 </div>
             </nav>
 
-            <!-- Hero
-            ============================================ -->
+            <!-- HERO _____ -->
             <div class="hero-wrapper text-center">
                 <div class="container">
                     <div class="row">

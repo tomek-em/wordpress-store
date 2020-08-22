@@ -9,7 +9,7 @@ class World {
     this.camera.position.set(7.0, 3.0, 10.0);
 
     this.renderer = new THREE.WebGLRenderer( { antialias: true } );
-    this.renderer.setClearColor( 0xB3BEBE, 1 );
+    this.renderer.setClearColor( 0xB3BEDE, 1 );
   	this.renderer.setSize( this.canv_width, this.canv_height );
   	this.canvas.appendChild( this.renderer.domElement );
 

@@ -132,11 +132,12 @@ const createCanvasCont = () => {
   canvas_cont.id = 'canvas_cont';
   canvas_cont.classList.add('canvas_cont');
 
-  const contId = `product-${woocomObj.id}`;
+  const contId = `product-${glbProduct.id}`;
   const product_cont = document.getElementById(contId);
   product_cont.prepend(canvas_cont);
 
   return canvas_cont;
+
 }
 
 

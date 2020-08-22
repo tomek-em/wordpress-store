@@ -1,4 +1,4 @@
-
+glbWp
 class ImgCanvas {
   constructor( canvas ) {
 
@@ -55,7 +55,7 @@ class ImgCanvas {
 
     // load bg tshirt img
     if(bg_color) this.shirtColor = bg_color;
-    let bg_path = `${wpUrl.theme_url}/res/tees/${bg[this.shirtColor]}`;
+    let bg_path = `${glbWp.themeUrl}/res/tees/${bg[this.shirtColor]}`;
 
     bg_img = await this.loadImg( bg_path );
 

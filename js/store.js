@@ -131,7 +131,7 @@ jQuery(function($){
 
   // shirt product designer
   $('#woo_designer_add_to_cart_form button').html('Buy');
-  
+
 
 if ($(window).width() < 882) mobSize();
 
