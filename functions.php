@@ -21,10 +21,11 @@
     // Enqueue Fonts
     wp_enqueue_style( 'store-google-fonts', 'https://fonts.googleapis.com/css?family=Play:400,700|Poppins:400,600|Righteous&display=swap');
     // custom Woocommerce styles
-    wp_enqueue_style( ' store-add-woocommerce-css ', get_template_directory_uri() . '/css/custom_wc.css');
+    wp_enqueue_style( 'store-add-woocommerce-css', get_template_directory_uri() . '/css/custom_wc.css');
+    // product styles
+    wp_enqueue_style( 'store-add-product-viewer-css', get_template_directory_uri() . '/css/product_viewer.css');
     // Custom styles
-    wp_enqueue_style( ' store-add-main-css ', get_template_directory_uri() . '/style.css', array(), '2.0' );
-    wp_enqueue_style( ' store-product-css ', get_template_directory_uri() . '/css/product_viewer.css', array(), '2.0' );
+    wp_enqueue_style( 'store-add-main-css ', get_template_directory_uri() . '/style.css' );
 
     // Font-awesome
     wp_enqueue_script( 'store-fontawesome', get_template_directory_uri() . '/js/lib/all.js', array(), false, true);
@@ -35,8 +36,7 @@
 
 
 
-  // Product Scripts
-  // Change to plugin
+  // 3d Product Scripts
   function enq_three_prod_scripts() {
       wp_enqueue_script( 'three_js', get_theme_file_uri( '/js/three_js/three.min.js' ), null, null, true );
       wp_enqueue_script( 'orbit_controls', get_theme_file_uri( '/js/three_js/OrbitControls.js' ), null, null, true );
@@ -48,10 +48,6 @@
       wp_enqueue_script( '_three_prod', get_theme_file_uri( '/js/3d_prod.js' ), null, null, true );
   }
 
-  function enq_canvas_prod_scripts() {
-      wp_enqueue_script( '_canvas', get_theme_file_uri( '/js/img_canvas.js' ), null, null, true );
-      wp_enqueue_script( '_two_prod', get_theme_file_uri( '/js/2d_prod.js' ), null, null, true );
-  }
 
   // Product quantity counter - Run on single prod page
   function ts_quantity_plus_minus() {
@@ -86,9 +82,9 @@
                 'category' => $prodCategory
             );
           }
-
     ?>
       <script type="text/javascript">
+        console.log('des ', <?php $prodDes ; ?>);
         let glbWp = <?php echo json_encode($wpVar, JSON_UNESCAPED_SLASHES); ?>;
         let glbProduct = <?php echo json_encode($prod); ?>;
       </script> <?php

@@ -1,5 +1,5 @@
 <?php
-/* Post and Product File
+/* Post/ Product page
 */
 
   get_header();
@@ -19,8 +19,6 @@
                 the_content();
 
             } elseif (is_product() && has_term('tees', 'product_cat')) {
-                enq_canvas_prod_scripts();
-                remove_prod_det();
                 the_content();
             }
              else {
