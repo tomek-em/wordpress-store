@@ -8,6 +8,12 @@ This is main store theme js files
 
 jQuery(function($){
 
+    // Preloader ---------
+    $(window).on('load', () => {
+      $('.preloader').fadeOut(1000);
+    });
+
+
     // Toggle menu ------------
     function showMenu() {
         $('.menu').slideToggle(300);  //slideToggle -> toggle between slideUp/slideDown

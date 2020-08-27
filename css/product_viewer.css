@@ -104,8 +104,10 @@
 }
 
 
-
-
+/*  Hide tshirt custom field */
+.tshirt_d_none {
+  display: none;
+}
 
 
 

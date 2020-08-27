@@ -22,8 +22,8 @@ const readFile = (e) => {
 	reader.onload = function(e) {
 		let content = e.target.result;
 
-		let custom_prod_text = document.querySelector('.thwepof-input-field');
-		custom_prod_text.value = 'file';
+		// let custom_prod_text = document.querySelector('.thwepof-input-field');
+		// custom_prod_text.value = 'file';
 
 		world.changeCustomImage( content, true );
 	}
@@ -126,9 +126,8 @@ const createButtonsPanel = (canv) => {
 		world.setCustomText( text_input.value, null, 'm' );
 
 		// Set custom prod text
-		// let custom_prod_text = document.querySelector('.wccpf-field');
-		let custom_prod_text = document.querySelector('.thwepof-input-field');
-		custom_prod_text.value = text_input.value;
+		// let custom_prod_text = document.querySelector('.thwepof-input-field');
+		// custom_prod_text.value = text_input.value;
 	});
 
 

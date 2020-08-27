@@ -13,6 +13,15 @@
 </head>
 
 <body <?php if(function_exists("body_class") && !is_404()){body_class();} else echo 'class="default_page"'?>>
+
+    <!-- PRE LOADER -->
+    <div class="preloader">
+       <div class="spinner">
+          <span class="spinner-rotate"></span>
+       </div>
+    </div>
+
+
     <div class="wrapper">
     <!-- Header -->
         <header class="site-header" id="main-header">
