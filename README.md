@@ -3,7 +3,7 @@
 This theme contains a 3d product viewer made with with ThreeJS.
 
 ## Demo:
-http://tomaszmejer.com/store/
+https://tomaszmejer.com/store/
 
 ---
 
